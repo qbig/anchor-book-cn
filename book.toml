@@ -1,5 +1,6 @@
 [book]
+title = "The Anchor Book v0.23.0 中文版"
 authors = []
-language = "en"
+language = "zh-CN"
 multilingual = false
 src = "src"
