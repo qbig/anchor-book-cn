@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Accounts Struct - The Anchor Book v0.23.0 中文版</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../chapter_1/introduction.html"><strong aria-hidden="true">1.</strong> 引言</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter_1/what_is_anchor.html"><strong aria-hidden="true">1.1.</strong> 什么是Anchor</a></li><li class="chapter-item expanded "><a href="../chapter_1/anchor_documentation.html"><strong aria-hidden="true">1.2.</strong> Anchor文档</a></li><li class="chapter-item expanded "><a href="../chapter_1/prerequisites.html"><strong aria-hidden="true">1.3.</strong> 必要基础</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter_2/getting_started.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter_2/installation.html"><strong aria-hidden="true">2.1.</strong> 安装</a></li><li class="chapter-item expanded "><a href="../chapter_2/hello_anchor.html"><strong aria-hidden="true">2.2.</strong> Hello, Anchor!</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter_3/anchor_programs_in-depth.html"><strong aria-hidden="true">3.</strong> 深入了解Anchor程序</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter_3/essentials.html"><strong aria-hidden="true">3.1.</strong> 核心内容</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter_3/high-level_overview.html"><strong aria-hidden="true">3.1.1.</strong> 总览</a></li><li class="chapter-item expanded "><a href="../chapter_3/the_accounts_struct.html" class="active"><strong aria-hidden="true">3.1.2.</strong> The Accounts Struct</a></li><li class="chapter-item expanded "><a href="../chapter_3/the_program_module.html"><strong aria-hidden="true">3.1.3.</strong> The Program Module</a></li><li class="chapter-item expanded "><a href="../chapter_3/errors.html"><strong aria-hidden="true">3.1.4.</strong> Errors</a></li><li class="chapter-item expanded "><a href="../chapter_3/milestone_project_tic-tac-toe.html"><strong aria-hidden="true">3.1.5.</strong> 里程碑项目 - Tic-Tac-Toe</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter_3/intermediate.html"><strong aria-hidden="true">3.2.</strong> 进阶内容</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter_3/CPIs.html"><strong aria-hidden="true">3.2.1.</strong> 跨程序调用Cross-Program Invocations</a></li><li class="chapter-item expanded "><a href="../chapter_3/PDAs.html"><strong aria-hidden="true">3.2.2.</strong> 程序导出地址PDAs</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.3.</strong> 事件Events</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.4.</strong> 常量Constants</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.5.</strong> 零复制Zero-Copy</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.6.</strong> 权限控制Access Control</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.7.</strong> 构建和测试Building &amp; Testing</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.8.</strong> 里程碑项目 - The Nightclub</div></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Anchor BTS</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Dispatch</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.</strong> The Discriminator</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../chapter_5/anchor_tooling.html"><strong aria-hidden="true">5.</strong> Anchor相关工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter_5/space.html"><strong aria-hidden="true">5.1.</strong> 数据所占空间</a></li><li class="chapter-item expanded "><a href="../chapter_5/cli.html"><strong aria-hidden="true">5.2.</strong> 命令行CLI</a></li><li class="chapter-item expanded "><a href="../chapter_5/avm.html"><strong aria-hidden="true">5.3.</strong> Anchor版本管理器AVM</a></li><li class="chapter-item expanded "><a href="../chapter_5/anchor-toml_reference.html"><strong aria-hidden="true">5.4.</strong> Anchor.toml配置文件</a></li></ol></li><li class="chapter-item expanded "><a href="../reference_links.html"><strong aria-hidden="true">6.</strong> 参考链接</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Anchor Book v0.23.0 中文版</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="accounts-struct"><a class="header" href="#accounts-struct">Accounts Struct</a></h1>
+<p>Accounts struct 是我们定义传给instruction的accounts的数据结构，并且也用来定义这些accounts需要满足的限制条件. 我们主要通过两种方法来实现: 类型和限制条件. </p>
+<h2 id="types类型"><a class="header" href="#types类型">Types类型</a></h2>
+<blockquote>
+<p><a href="https://docs.rs/anchor-lang/latest/anchor_lang/accounts/index.html">Account Types 类型的文档</a></p>
+</blockquote>
+<p>每个类型都是为了针对一个特定的问题. 详细的解释可以参考<a href="https://docs.rs/anchor-lang/latest/anchor_lang/accounts/index.html">文档</a>. 这里我们只介绍最重要的类, <code>Account</code>类型.</p>
+<h3 id="account-类型"><a class="header" href="#account-类型">Account 类型</a></h3>
+<blockquote>
+<p><a href="https://docs.rs/anchor-lang/latest/anchor_lang/accounts/account/struct.Account.html">Account Reference</a></p>
+</blockquote>
+<p><code>Account</code>类型可以用来处理instruction中涉及到account所包含的，再反序列化之后的数据. 例如，接下来这个例子里，我们想再account中写一些数据:</p>
+<pre><code class="language-rust ignore">use anchor_lang::prelude::*;
+
+declare_id!(&quot;Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS&quot;);
+
+#[program]
+mod hello_anchor {
+    use super::*;
+    pub fn set_data(ctx: Context&lt;SetData&gt;, data: u64) -&gt; ProgramResult {
+        ctx.accounts.my_account.data = data;
+        Ok(())
+    }
+}
+
+#[account]
+#[derive(Default)]
+pub struct MyAccount {
+    data: u64
+}
+
+#[derive(Accounts)]
+pub struct SetData&lt;'info&gt; {
+    #[account(mut)]
+    pub my_account: Account&lt;'info, MyAccount&gt;
+}
+</code></pre>
+<p><code>Account</code>是围绕<code>T</code>的泛型. <code>T</code>是一个我们可以自己定义的类型. 在这个例子里,我们创建了<code>MyAccount</code> struct，它只有一个<code>data</code> 字段在储存一个<code>u64</code>. Account 要求 <code>T</code> 实现一些特定的functions (例如用来序列化和反序列化<code>T</code>的functions). 通常, 你可以用<code>#[account]</code>宏来为你的类型配置这些functions，如例子中所示。</p>
+<p>最重要的一点是, <code>#[account]</code>宏会把账户的owner设置为它所在crate的<code>ID</code> (由我们一开始的<code>declareId</code>命令所创建). Account类型会帮我们自动验证传入instruction的<code>AccountInfo</code>所对应的<code>owner</code>字段指向了正确的程序. 在这个例子里, <code>MyAccount</code> 是在同一个crate 中定义的，所有<code>Account</code>会验证<code>my_account</code>的owner字段和<code>declareId</code>中定义的一致.</p>
+<h4 id="对非anchor程序的accounts使用accounta-t"><a class="header" href="#对非anchor程序的accounts使用accounta-t">对非Anchor程序的accounts使用<code>Account&lt;'a, T&gt;</code></a></h4>
+<p>有些情况下，你需要你的程序和非Anchor程序交互。你仍然可以利用<code>Account</code>的好处，但是你需要写一个自定义wrapper类型来替代<code>#[account]</code>宏. 比如, Anchor为token程序的accounts提供的wrapper类型TokenAccount，就可以直接用在<code>Account</code>里面. </p>
+<pre><code class="language-rust ignore">use anchor_lang::prelude::*;
+
+declare_id!(&quot;Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS&quot;);
+
+#[program]
+mod hello_anchor {
+    use super::*;
+    pub fn set_data(ctx: Context&lt;SetData&gt;, data: u64) -&gt; ProgramResult {
+        if ctx.accounts.token_account.amount &gt; 0 {
+            ctx.accounts.my_account.data = data;
+        }
+        Ok(())
+    }
+}
+
+#[account]
+#[derive(Default)]
+pub struct MyAccount {
+    data: u64,
+    mint: Pubkey
+}
+
+#[derive(Accounts)]
+pub struct SetData&lt;'info&gt; {
+    #[account(mut)]
+    pub my_account: Account&lt;'info, MyAccount&gt;,
+    #[account(
+        constraint = my_account.mint == token_account.mint,
+        has_one = owner
+    )]
+    pub token_account: Account&lt;'info, TokenAccount&gt;,
+    pub owner: Signer&lt;'info&gt;
+}
+</code></pre>
+<p>在这个例子里，如果调用的caller有admin权限，我们就可以写入account的<code>data</code>字段。我们通过检验Caller是不是拥有admin token 来检验它是不是有admin权限，具体说想要更新MyAccount的mint要吻合所有的token的mint。而这些检验都是由“constraints限制条件”这个功能实现的。我们会在下一节详细介绍。
+这里的重点是我们用<code>TokenAccount</code>类来包裹在<code>Account</code>struct上来提供需要的functions，这样Anchor就可以确定通过instruction传入的account的确是属于token program的，并且自动反序列化。
+这也意味着我们可以在我们的限制条件constraints和instruction中使用<code>TokenAccount</code>的properties(例如. <code>token_account.mint</code>)。</p>
+<p>更多内容可以参考<a href="https://docs.rs/anchor-lang/latest/anchor_lang/struct.Account.html">reference for the Account type</a>，来学习具体如何实现你自己的wrapper类来应付非Anchor程序的account。</p>
+<h2 id="constraints限制条件"><a class="header" href="#constraints限制条件">Constraints限制条件</a></h2>
+<blockquote>
+<p><a href="https://docs.rs/anchor-lang/latest/anchor_lang/derive.Accounts.html">Constraints reference</a></p>
+</blockquote>
+<p>Account类型可以帮我们做很多，但是不够动态，不足以应付一个安全程序所需要的各种验证。而这就是Constraints可以帮我们的地方。</p>
+<p>我们可以用下面的格式给account添加constraints:</p>
+<pre><code class="language-rust ignore">#[account(&lt;constraints&gt;)]
+pub account: AccountType
+</code></pre>
+<p>有的constraints支持自定义错误类型Custom Errors(之后我们会详细介绍<a href="./errors.html">errors</a>):</p>
+<pre><code class="language-rust ignore">#[account(...,&lt;constraint&gt; @ MyError::MyErrorVariant, ...)]
+pub account: AccountType
+</code></pre>
+<p>在上面的一些例子里, 我们用<code>mut</code> constraint来标记<code>my_account</code>为可更改. 我们用<code>has_one</code>来验证<code>token_account.owner == owner.key()</code>. 最终我们用<code>constraint</code>来验证任意的表达式; 在下面的这个例子中，我们验证<code>TokenAccount</code>和admin的mint是同一个.</p>
+<pre><code class="language-rust ignore">#[derive(Accounts)]
+pub struct SetData&lt;'info&gt; {
+    #[account(mut)]
+    pub my_account: Account&lt;'info, MyAccount&gt;,
+    #[account(
+        constraint = my_account.mint == token_account.mint,
+        has_one = owner
+    )]
+    pub token_account: Account&lt;'info, TokenAccount&gt;,
+    pub owner: Signer&lt;'info&gt;
+}
+</code></pre>
+<p>所有constraints的细节都在文档里. 在核心内容的里程碑项目中，我们会介绍最重要的一些constraint。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapter_3/high-level_overview.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../chapter_3/the_program_module.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapter_3/high-level_overview.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../chapter_3/the_program_module.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

@@ -1,0 +1,600 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>里程碑项目 - Tic-Tac-Toe - The Anchor Book v0.23.0 中文版</title>
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../chapter_1/introduction.html"><strong aria-hidden="true">1.</strong> 引言</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter_1/what_is_anchor.html"><strong aria-hidden="true">1.1.</strong> 什么是Anchor</a></li><li class="chapter-item expanded "><a href="../chapter_1/anchor_documentation.html"><strong aria-hidden="true">1.2.</strong> Anchor文档</a></li><li class="chapter-item expanded "><a href="../chapter_1/prerequisites.html"><strong aria-hidden="true">1.3.</strong> 必要基础</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter_2/getting_started.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter_2/installation.html"><strong aria-hidden="true">2.1.</strong> 安装</a></li><li class="chapter-item expanded "><a href="../chapter_2/hello_anchor.html"><strong aria-hidden="true">2.2.</strong> Hello, Anchor!</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter_3/anchor_programs_in-depth.html"><strong aria-hidden="true">3.</strong> 深入了解Anchor程序</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter_3/essentials.html"><strong aria-hidden="true">3.1.</strong> 核心内容</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter_3/high-level_overview.html"><strong aria-hidden="true">3.1.1.</strong> 总览</a></li><li class="chapter-item expanded "><a href="../chapter_3/the_accounts_struct.html"><strong aria-hidden="true">3.1.2.</strong> The Accounts Struct</a></li><li class="chapter-item expanded "><a href="../chapter_3/the_program_module.html"><strong aria-hidden="true">3.1.3.</strong> The Program Module</a></li><li class="chapter-item expanded "><a href="../chapter_3/errors.html"><strong aria-hidden="true">3.1.4.</strong> Errors</a></li><li class="chapter-item expanded "><a href="../chapter_3/milestone_project_tic-tac-toe.html" class="active"><strong aria-hidden="true">3.1.5.</strong> 里程碑项目 - Tic-Tac-Toe</a></li></ol></li><li class="chapter-item expanded "><a href="../chapter_3/intermediate.html"><strong aria-hidden="true">3.2.</strong> 进阶内容</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter_3/CPIs.html"><strong aria-hidden="true">3.2.1.</strong> 跨程序调用Cross-Program Invocations</a></li><li class="chapter-item expanded "><a href="../chapter_3/PDAs.html"><strong aria-hidden="true">3.2.2.</strong> 程序导出地址PDAs</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.3.</strong> 事件Events</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.4.</strong> 常量Constants</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.5.</strong> 零复制Zero-Copy</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.6.</strong> 权限控制Access Control</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.7.</strong> 构建和测试Building &amp; Testing</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.8.</strong> 里程碑项目 - The Nightclub</div></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Anchor BTS</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Dispatch</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.</strong> The Discriminator</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="../chapter_5/anchor_tooling.html"><strong aria-hidden="true">5.</strong> Anchor相关工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="../chapter_5/space.html"><strong aria-hidden="true">5.1.</strong> 数据所占空间</a></li><li class="chapter-item expanded "><a href="../chapter_5/cli.html"><strong aria-hidden="true">5.2.</strong> 命令行CLI</a></li><li class="chapter-item expanded "><a href="../chapter_5/avm.html"><strong aria-hidden="true">5.3.</strong> Anchor版本管理器AVM</a></li><li class="chapter-item expanded "><a href="../chapter_5/anchor-toml_reference.html"><strong aria-hidden="true">5.4.</strong> Anchor.toml配置文件</a></li></ol></li><li class="chapter-item expanded "><a href="../reference_links.html"><strong aria-hidden="true">6.</strong> 参考链接</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Anchor Book v0.23.0 中文版</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="里程碑项目---tic-tac-toe三连棋游戏"><a class="header" href="#里程碑项目---tic-tac-toe三连棋游戏">里程碑项目 - Tic-Tac-Toe三连棋游戏</a></h1>
+<p>你现在已经做好准备开发你的第一个Anchor项目了。创建一个新的Anchor工作环境：</p>
+<pre><code>anchor init tic-tac-toe
+</code></pre>
+<p>这个程序会有两个指令(instructions). 首先，我们需要创建游戏(setup)，我们需要保存谁在玩，并且创建一个可以玩的棋盘。然后，每个选手轮流行动，直到一方胜出或者达到平局。</p>
+<h2 id="创建游戏setting-up-the-game"><a class="header" href="#创建游戏setting-up-the-game">创建游戏Setting up the game</a></h2>
+<h3 id="状态state"><a class="header" href="#状态state">状态State</a></h3>
+<p>我们先开始思考一下我们应该储存哪。每局游戏有玩家，回合，游戏板，还有游戏状态。这个游戏状态描述游戏是不是还在进行，平局或者一方赢了。我们可以把所有这些状态都存在一个account里面。着意味着每新一局游戏都会有自己的account。把下面这段代码加到<code>lib.rs</code>的最底部：</p>
+<pre><code class="language-rust ignore">#[account]
+pub struct Game {
+    players: [Pubkey; 2],          // 64
+    turn: u8,                      // 1
+    board: [[Option&lt;Sign&gt;; 3]; 3], // 9 * (1 + 1) = 18
+    state: GameState,              // 32 + 1
+}
+</code></pre>
+<p>这就是game account. 在字段定义边上, 你看一看到每个字段要求的字节数. 这在之后会用到. 让我们把<code>Sign</code>和<code>GameState</code>类型也加上。</p>
+<pre><code class="language-rust ignore">#[derive(AnchorSerialize, AnchorDeserialize, Clone, PartialEq, Eq)]
+pub enum GameState {
+    Active,
+    Tie,
+    Won { winner: Pubkey },
+}
+
+#[derive(
+    AnchorSerialize,
+    AnchorDeserialize,
+    FromPrimitive,
+    ToPrimitive,
+    Copy,
+    Clone,
+    PartialEq,
+    Eq
+)]
+pub enum Sign {
+    X,
+    O,
+}
+</code></pre>
+<p><code>GameState</code>和<code>Sign</code>都通过derive引入了一些traits. 其中<code>AnchorSerialize</code>和<code>AnchorDeserialize</code>最重要. 所有在被<code>#[account]</code>标记的类型内部面使用的类型必须实现这两个traits(或者本身也被标记了<code>#[account]</code>). 所有其他的traits也对我们的游戏逻辑很重要，我们会在之后用到。通常一个好的习惯是使用更多的traits来让程序对外部的接口用户更友好(参考 <a href="https://rust-lang.github.io/api-guidelines/interoperability.html#types-eagerly-implement-common-traits-c-common-traits">Rust的API指南</a>) 但是处于简洁考虑, 在这个指南里我们就不详细介绍了。</p>
+<p>暂时这还不能运行，因为<code>FromPrimitive</code>和<code>ToPrimitive</code>对程序是未知的。 在<code>src</code>外面的<code>Cargo.toml</code>文件  (不是工作环境跟目的)然后加上这两个依赖:</p>
+<pre><code class="language-toml">num-traits = &quot;0.2&quot;
+num-derive = &quot;0.3&quot;
+</code></pre>
+<p>接下来, 在<code>lib.rs</code>最上面import:</p>
+<pre><code class="language-rust ignore">use num_derive::*;
+use num_traits::*;
+</code></pre>
+<h3 id="setup-instruction命令"><a class="header" href="#setup-instruction命令">Setup Instruction命令</a></h3>
+<p>在我们实现游戏逻辑之前, 我们可以先加上在初始状态创建游戏的instruction。把现有的instruction function还有accounts struct为<code>setup_game</code>和<code>SetupGame</code>。 现在我们来考虑一下创建游戏需要哪些accounts。显然，我们需要game account。在对它进行各种赋值之前，我们要先创建它。因此我们要用<code>init</code>限制条件。</p>
+<pre><code class="language-rust ignore">#[derive(Accounts)]
+pub struct SetupGame&lt;'info&gt; {
+    #[account(init)]
+    pub game: Account&lt;'info, Game&gt;
+}
+</code></pre>
+<p><code>init</code>应该会立刻报错并且要添加一个payer. 为什么需要payer呢? 因为<code>init</code>会创建一个<code>免租</code>(<code>rent-exempt</code>) accounts因此必须有人要付出足够的费用. 自然的, 如果我们想用某人的钱, 我们肯定需要他签名，并且把他的账号标记为可更改。</p>
+<pre><code class="language-rust ignore">#[derive(Accounts)]
+pub struct SetupGame&lt;'info&gt; {
+    #[account(init, payer = player_one)]
+    pub game: Account&lt;'info, Game&gt;,
+    #[account(mut)]
+    pub player_one: Signer&lt;'info&gt;
+}
+</code></pre>
+<p><code>init</code>可能还是有报错. 它需要system program也在struct里面，因为<code>init</code>创建game account，需要对system program调用。 那我们把它也加上。</p>
+<pre><code class="language-rust ignore">#[derive(Accounts)]
+pub struct SetupGame&lt;'info&gt; {
+    #[account(init, payer = player_one)]
+    pub game: Account&lt;'info, Game&gt;,
+    #[account(mut)]
+    pub player_one: Signer&lt;'info&gt;,
+    pub system_program: Program&lt;'info, System&gt;
+}
+</code></pre>
+<p>完成<code>SetupGame</code>还有最后一步。每个account都是按照固定的空间大小创建的。 <code>init</code>可以估计一个account所需要的空间，如果它由<code>Default</code>导出。因为，让我们来给<code>Game</code>实现一下<code>Default</code>。</p>
+<pre><code class="language-rust ignore">#[account]
+#[derive(Default)] &lt;-- add this
+pub struct Game {...
+</code></pre>
+<p>and <code>GameState</code>.</p>
+<pre><code class="language-rust ignore">impl Default for GameState {
+    fn default() -&gt; Self {
+        Self::Active
+    }
+}
+</code></pre>
+<p>这样, <code>SetupGame</code>就完成了，我们可以继续<code>setup_game</code> function的开发。(如果你想做侦探，你可以试着检查，为什么目前这个实现依然有问题。 提示: 查看<a href="https://borsh.io/">borsh 文档</a>，也就是Anchor用的序列化库。如果你看不出来问题，也没关系。 我们很快就会介绍它)</p>
+<p>让我们先给<code>setup_game</code>function加个参数.</p>
+<pre><code class="language-rust ignore">pub fn setup_game(ctx: Context&lt;SetupGame&gt;, player_two: Pubkey) -&gt; ProgramResult {
+    Ok(())
+}
+</code></pre>
+<p>为什么不直接把<code>player_two</code>作为account加到accounts struct里面呢？有两个原因，首先，加到accounts里面会让交易占用更多的空间因为需要记录account是不是可写入(writable)和是不是签名者(signer)。但是我们并不需要这两个状态，只需要地址address。第二个也是更重要一个原因，如果用到了同一个账号，一个交易可以影响到网络中同时在处理的其他交易。例如，如果我们把<code>player_two</code>加到了accounts struct, 那再处理我们的交易的时候，任何其他交易都不可以编辑<code>player_two</code>的account。 也就是说, 我们阻塞了所有其他的想编辑<code>player_two</code>的account的交易, 即使我们根本不想动这个account. 我们只在乎它的地址！</p>
+<p>完成instruction function，设置game的初始值:</p>
+<pre><code class="language-rust ignore">pub fn setup_game(ctx: Context&lt;SetupGame&gt;, player_two: Pubkey) -&gt; ProgramResult {
+    let game = &amp;mut ctx.accounts.game;
+    game.players = [ctx.accounts.player_one.key(), player_two];
+    game.turn = 1;
+    Ok(())
+}
+</code></pre>
+<p>现在，运行<code>anchor build</code>。除了编译你的程序，这个命令还会为你的程序创建一个<a href="https://en.wikipedia.org/wiki/Interface_description_language">IDL</a>。 具体位置在<code>target/idl</code>. Anchor的typescript客户端可以自动解析IDL，并根据它生成函数. 这意味着每个Anchor程序都有免费的Typescript客户端(自动生成)! (理论上说, 测试之前你不需要调用anchor build. <code>anchor test</code>会帮你调用.)</p>
+<h3 id="测试setup-instruction"><a class="header" href="#测试setup-instruction">测试Setup Instruction</a></h3>
+<p>该测试代码了! 去项目根目录的<code>tests</code>文件夹. 打开<code>tic-tac-toe.ts</code>文件然后删掉<code>it</code>test. 然后, 把下面的带吧添加到<code>describe</code>部分:</p>
+<pre><code class="language-typescript">  it('setup game!', async() =&gt; {
+    const gameKeypair = anchor.web3.Keypair.generate();
+    const playerOne = program.provider.wallet;
+    const playerTwo = anchor.web3.Keypair.generate();
+    await program.rpc.setupGame(playerTwo.publicKey, {
+      accounts: {
+        game: gameKeypair.publicKey,
+        playerOne: playerOne.publicKey,
+        systemProgram: anchor.web3.SystemProgram.programId
+      },
+      signers: [gameKeypair]
+    });
+
+    let gameState = await program.account.game.fetch(gameKeypair.publicKey);
+    expect(gameState.turn).to.equal(1);
+    expect(gameState.players)
+      .to
+      .eql([playerOne.publicKey, playerTwo.publicKey]);
+    expect(gameState.state).to.eql({ active: {} });
+    expect(gameState.board)
+      .to
+      .eql([[null,null,null],[null,null,null],[null,null,null]]);
+  });
+</code></pre>
+<p>然后把这个加到文件开头:</p>
+<pre><code class="language-typescript">import { expect } from 'chai';
+</code></pre>
+<p>测试开始我们先创建一些公私钥对。值得注意的是, <code>playerOne</code>并不是公私钥对，而是程序provider的钱包. Provider的细节是在项目根目录的<code>Anchor.toml</code>文件中定义的。
+然后, 我们发送交易。因为anchor的typescript客户端解析了IDL,所有交易的输入都有类型。例如，如果你少加了一个account,typescript就会报错。 
+接下来我们介绍transaction function的结构. 第一是instruction的参数。 就这个function来说, 是second player的公钥。接下来是accounts. 最后, 我们加上signers数组。 这里我们必须加上<code>gameKeypair</code>也就是game的公私钥对，因为每当一个account被创建, 它都要对创建账号的transaction签名。 我们不需要加<code>playerOne</code>，尽管它在程序中定义的是<code>Signer</code>类型，因为它是程序的provider并且本身就会对transaction签名。</p>
+<p>在transaction返回结果后，我们可以读取game account的状态。通常你可以通过<code>program.account</code> namespace来读取account的状态。 
+最后，我们来验证game已经被成功的创建了。Anchor的typescript客户端会这样反序列化rust的enum: <code>{ active: {}}</code>对应一个没有字段的变型，而<code>{ won: { winner: Pubkey }}</code> 对应有字段值的变型. <code>Option</code>的<code>None</code>变型会被转化为<code>null</code>.<code>Some(x)</code>会被转化为<code>x</code>反序列化的结果.</p>
+<p>现在运行<code>anchor test</code>。这会启动(之后自动关闭)一个本地的validator(确认在着之前你自己没有运行validator)然后运行你定义在<code>Anchor.toml</code>中的测试脚本。</p>
+<h2 id="实现游戏playing-the-game"><a class="header" href="#实现游戏playing-the-game">实现游戏Playing the game</a></h2>
+<h3 id="the-play-instruction"><a class="header" href="#the-play-instruction">The Play Instruction</a></h3>
+<p><code>Play</code> accounts struct很容易懂. 我们需要一个game account还有一个玩家player:</p>
+<pre><code class="language-rust ignore">#[derive(Accounts)]
+pub struct Play&lt;'info&gt; {
+    #[account(mut)]
+    pub game: Account&lt;'info, Game&gt;,
+    pub player: Signer&lt;'info&gt;,
+}
+</code></pre>
+<p><code>player</code>需要签名否则，其他人也可以来冒名顶替.</p>
+<p>接下来，我们实现游戏逻辑:</p>
+<pre><code class="language-rust ignore">impl Game {
+    pub fn is_active(&amp;self) -&gt; bool {
+        self.state == GameState::Active
+    }
+
+    fn current_player_index(&amp;self) -&gt; usize {
+        ((self.turn - 1) % 2) as usize
+    }
+
+    pub fn current_player(&amp;self) -&gt; Pubkey {
+        self.players[self.current_player_index()]
+    }
+
+    pub fn play(&amp;mut self, tile: &amp;Tile) -&gt; ProgramResult {
+        if !self.is_active() {
+            return Err(TicTacToeError::GameAlreadyOver.into());
+        }
+        match tile {
+            tile
+            @ Tile {
+                row: 0..=2,
+                column: 0..=2,
+            } =&gt; match self.board[tile.row as usize][tile.column as usize] {
+                Some(_) =&gt; return Err(TicTacToeError::TileAlreadySet.into()),
+                None =&gt; {
+                    self.board[tile.row as usize][tile.column as usize] =
+                        Some(Sign::from_usize(self.current_player_index()).unwrap());
+                }
+            },
+            _ =&gt; return Err(TicTacToeError::TileOutOfBounds.into()),
+        }
+
+        self.update_state();
+
+        if let GameState::Active = self.state {
+            self.turn += 1;
+        }
+
+        Ok(())
+    }
+
+    fn is_winning_trio(&amp;self, trio: [(usize, usize); 3]) -&gt; bool {
+        let [first, second, third] = trio;
+        self.board[first.0][first.1].is_some()
+            &amp;&amp; self.board[first.0][first.1] == self.board[second.0][second.1]
+            &amp;&amp; self.board[first.0][first.1] == self.board[third.0][third.1]
+    }
+
+    fn update_state(&amp;mut self) {
+        for i in 0..=2 {
+            // three of the same in one row
+            if self.is_winning_trio([(i, 0), (i, 1), (i, 2)]) {
+                self.state = GameState::Won {
+                    winner: self.current_player(),
+                };
+                return;
+            }
+            // three of the same in one column
+            if self.is_winning_trio([(0, i), (1, i), (2, i)]) {
+                self.state = GameState::Won {
+                    winner: self.current_player(),
+                };
+                return;
+            }
+        }
+
+        // three of the same in one diagonal
+        if self.is_winning_trio([(0, 0), (1, 1), (2, 2)])
+            || self.is_winning_trio([(0, 2), (1, 1), (2, 0)])
+        {
+            self.state = GameState::Won {
+                winner: self.current_player(),
+            };
+            return;
+        }
+
+        // reaching this code means the game has not been won,
+        // so if there are unfilled tiles left, it's still active
+        for row in 0..=2 {
+            for column in 0..=2 {
+                if self.board[row][column].is_none() {
+                    return;
+                }
+            }
+        }
+
+        // game has not been won
+        // game has no more free tiles
+        // -&gt; game ends in a tie
+        self.state = GameState::Tie;
+    }
+}
+</code></pre>
+<p>这段代码我们就不一起细看了，因为是比较简单的rust代码。毕竟三连棋本身就是个简单的游戏！大致上，每当<code>play</code>被调用，会有这些动作:</p>
+<ol>
+<li>return error if 游戏结束 or
+return error if 输入的行或者列的位置在3x3 board外面 or
+return error if tile on 板子上的位置已经被填过了</li>
+<li>确定现在的player 并且把落棋子的位置设为 X 或 O</li>
+<li>更新 game state</li>
+<li>if game 还是 active状态, 增加 the turn回合数</li>
+</ol>
+<p>目前, 代码还是无法编译，因为我们需要实现<code>Tile</code>类型</p>
+<pre><code class="language-rust ignore">#[derive(AnchorSerialize, AnchorDeserialize)]
+pub struct Tile {
+    row: u8,
+    column: u8,
+}
+</code></pre>
+<p>and the <code>TicTacToeError</code> type.</p>
+<pre><code class="language-rust ignore">#[error]
+pub enum TicTacToeError {
+    TileOutOfBounds,
+    TileAlreadySet,
+    GameAlreadyOver,
+    NotPlayersTurn,
+}
+</code></pre>
+<p>最后, 我们把 <code>play</code> function添加到program模块。</p>
+<pre><code class="language-rust ignore">pub fn play(ctx: Context&lt;Play&gt;, tile: Tile) -&gt; ProgramResult {
+    let game = &amp;mut ctx.accounts.game;
+
+    require!(
+        game.current_player() == ctx.accounts.player.key(),
+        TicTacToeError::NotPlayersTurn
+    );
+
+    game.play(&amp;tile)
+}
+</code></pre>
+<p>在accounts struct中我们已经检查过<code>player</code> account已经对transaction签名，但是我们没有检查这个<code>player</code>是不是我们预期game中所对应的<code>player</code>。这就是<code>play</code>里面<code>require</code>的作用。</p>
+<h3 id="testing-the-play-instruction"><a class="header" href="#testing-the-play-instruction">Testing the Play Instruction</a></h3>
+<p>测试<code>play</code> instruction的方法和之前类似。 为了不写重复代码, 我们可以在测试文件的最上面创建一个helper function:</p>
+<pre><code class="language-typescript">async function play(program, game, player,
+    tile, expectedTurn, expectedGameState, expectedBoard) {
+  await program.rpc.play(tile, {
+    accounts: {
+      player: player.publicKey,
+      game
+    },
+    signers: player instanceof (anchor.Wallet as any) ? [] : [player]
+  });
+
+  const gameState = await program.account.game.fetch(game);
+  expect(gameState.turn).to.equal(expectedTurn);
+  expect(gameState.state).to.eql(expectedGameState);
+  expect(gameState.board)
+    .to
+    .eql(expectedBoard);
+}
+</code></pre>
+<p>你可以创建一个新的<code>it</code>测试, 像上个测试里面那样创建game, 然后连续调用我们刚加的<code>play</code> function来模拟玩一整局游戏。 Let's begin with the first turn:</p>
+<pre><code class="language-typescript">it('player one wins', async() =&gt; {
+    const gameKeypair = anchor.web3.Keypair.generate();
+    const playerOne = program.provider.wallet;
+    const playerTwo = anchor.web3.Keypair.generate();
+    await program.rpc.setupGame(playerTwo.publicKey, {
+      accounts: {
+        game: gameKeypair.publicKey,
+        playerOne: playerOne.publicKey,
+        systemProgram: anchor.web3.SystemProgram.programId
+      },
+      signers: [gameKeypair]
+    });
+
+    let gameState = await program.account.game.fetch(gameKeypair.publicKey);
+    expect(gameState.turn).to.equal(1);
+    expect(gameState.players)
+      .to
+      .eql([playerOne.publicKey, playerTwo.publicKey]);
+    expect(gameState.state).to.eql({ active: {} });
+    expect(gameState.board)
+      .to
+      .eql([[null,null,null],[null,null,null],[null,null,null]]);
+
+    await play(
+      program,
+      gameKeypair.publicKey,
+      playerOne,
+      {row: 0, column: 0},
+      2,
+      { active: {}, },
+      [
+        [{x:{}},null,null],
+        [null,null,null],
+        [null,null,null]
+      ]
+    );
+});
+</code></pre>
+<p>然后再次运行<code>anchor test</code>，但你会发现一个报错:</p>
+<pre><code>Error: 3004: Failed to serialize the account
+</code></pre>
+<p>这咋办? 我们知道这肯定是运行play时候的问题, 因为<code>setupGame</code>的测试运行成功。
+另外, 报错说<code>serialize</code>(序列化), 不是<code>deserialize</code>(反序列化). 所以我们的代码运行了，然后anchor试图保存数据，但出错了。
+这类报错通常意味着我们的account太小了，无法保存所有的数据，而在这里恰恰就是这个问题。</p>
+<p>我们再细看一下<code>Game</code> struct还有我们创建它的方法:</p>
+<pre><code class="language-rust ignore">#[account]
+#[derive(Default)]
+pub struct Game {
+    players: [Pubkey; 2],          // 64
+    turn: u8,                      // 1
+    board: [[Option&lt;Sign&gt;; 3]; 3], // 9 * (1 + 1) = 18
+    state: GameState,              // 32 + 1
+}
+
+...
+#[account(init, payer = player_one)]
+pub game: Account&lt;'info, Game&gt;,
+...
+
+</code></pre>
+<p>回忆我们使用<code>Default</code>标记<code>Game</code>，因为<code>init</code>会根据<code>Default</code>试图推到所需要的正确的空间大小, “试图”是关键词. 再我们不明确定义account所需要的空间(<code>space</code> requirement)，Anchor会调用account的<code>default</code>，然后把它用borsh序列库转化为一个vector类型. 然后Anchor会用这个vector的长度作为account所需要的空间大小。
+那我们一步一步的用<a href="https://borsh.io/">borsh的文档</a>来过一下我们的代码. 旁边的注释告诉我们必须的空间大小要求, 也就是，对应类型的最大所占空间。</p>
+<ul>
+<li>Pubkey as a vector has a length of <code>32</code> so <code>2*32 = 64</code> ✅</li>
+<li>u8 as a vector has a length of <code>1</code> so <code>1 = 1</code> ✅</li>
+<li>board's default (<code>9 * None</code>) as a vector has a length of <code>9 != 18</code> ❌</li>
+<li>state's default as a vector is <code>1 != 33</code> ❌</li>
+</ul>
+<p>结论是<code>init</code>目前是预留了75字节给我们的account但account可能需要(64 + 1 + 18 + 33) = 116字节。
+我们可以这样把这个数字加到我们的实现里面:</p>
+<pre><code class="language-rust ignore">impl Game {
+    const MAXIMUM_SIZE: usize = 116;
+
+    ... // other functions
+}
+</code></pre>
+<pre><code class="language-rust ignore">...
+#[account(init, payer = player_one, space = Game::MAXIMUM_SIZE + 8)]
+pub game: Account&lt;'info, Game&gt;,
+...
+</code></pre>
+<p>再game状态的基础上, 我们还要额外加上<code>8</code>字节作为space. 这个额外的空间是留点给Anchor自动设置的<code>discriminator</code>的。 简短说,discriminator是Anchor用来区分同一个程序中不同account的标识。</p>
+<blockquote>
+<p>(那用<code>mem::size_of&lt;Game&gt;()</code>? 这个方法几乎可以，但还是不行。 问题是borsh库总是把option的标识序列化为1字节然后额外的x字节如果值是<code>Some</code>. Rust在可以的时候会用null-pointer优化来让Option的标识占零字节, 所有有的时候option和它的内容一样大。<code>Sign</code>就是被这样处理的。 这意味着<code>MAXIMUM_SIZE</code>可能会被表示为<code>mem::size_of&lt;Game&gt;() + 9</code>，这还是不对的)</p>
+</blockquote>
+<p>再运行<code>anchor test</code>应该就可以成功了。 你可以自己完成余下的测试了。试着模拟一个平局和赢的局!</p>
+<p>完善的测试还应该包括试图攻击合约的测试。你可以检查你时候妥善的考虑到了用非常规参数恶意调用你<code>play</code>的情况。 比如:</p>
+<pre><code class="language-typescript">try {
+  await play(
+    program,
+    gameKeypair.publicKey,
+    playerTwo,
+    {row: 5, column: 1}, // out of bounds row
+    4,
+    { active: {}, },
+    [
+      [{x:{}},{x: {}},null],
+      [{o:{}},null,null],
+      [null,null,null]
+    ]
+  );
+  // we use this to make sure we definitely throw an error
+  chai.assert(false, &quot;should've failed but didn't &quot;);
+} catch (error) {
+  expect(error.code).to.equal(6000);
+}
+</code></pre>
+<h2 id="部署"><a class="header" href="#部署">部署</a></h2>
+<p>Solana有三个网路: 主网<code>mainnet-beta</code>, 开发网<code>devnet</code>, 和测试网<code>testnet</code>.
+对开发者来说, <code>devnet</code>和<code>mainnet-beta</code>最值得关注。 <code>devnet</code>是你最接近真实的测试环境，相比本地环境<code>localnet</code>。 <code>testnet</code>通常只和Validators相关。</p>
+<p>我们将在<code>devnet</code>部署.</p>
+<p>这里是你的部署检查清单 🚀</p>
+<ol>
+<li>运行 <code>anchor build</code>. 你的program keypair会保存于<code>target/deploy</code>. 记得这个需要保密. 你可以在其他的网络使用.</li>
+<li>运行 <code>solana address -k target/deploy/tic_tac_toe-keypair.json</code>然后复制地址到<code>lib.rs</code>顶部的<code>declare_id!</code>宏.</li>
+<li>运行 <code>anchor build</code> 多一次. 这步很必要，因为需要保证新的program id存入二进制里面。</li>
+<li>更改<code>Anchor.toml</code>中的<code>provider.cluster</code>变量为<code>devnet</code>.</li>
+<li>运行 <code>anchor deploy</code></li>
+<li>运行 <code>anchor test</code></li>
+</ol>
+<p>有关部署的内容还有很多。例如，理解BPFLoader的工作原理,如何管理keys, 还有如何升级你的程序等等. 继续读更多文档来学习把!</p>
+<p>干得漂亮! 你完成了核心内容. 现在可以去学习更高级的Anchor内容了。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../chapter_3/errors.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                            <a rel="next" href="../chapter_3/intermediate.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../chapter_3/errors.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                    <a rel="next" href="../chapter_3/intermediate.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="../elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="../book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+    </body>
+</html>

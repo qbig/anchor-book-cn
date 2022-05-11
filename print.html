@@ -1,0 +1,1857 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>The Anchor Book v0.23.0 中文版</title>
+        <meta name="robots" content="noindex" />
+        <!-- Custom HTML head -->
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="chapter_1/introduction.html"><strong aria-hidden="true">1.</strong> 引言</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_1/what_is_anchor.html"><strong aria-hidden="true">1.1.</strong> 什么是Anchor</a></li><li class="chapter-item expanded "><a href="chapter_1/anchor_documentation.html"><strong aria-hidden="true">1.2.</strong> Anchor文档</a></li><li class="chapter-item expanded "><a href="chapter_1/prerequisites.html"><strong aria-hidden="true">1.3.</strong> 必要基础</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_2/getting_started.html"><strong aria-hidden="true">2.</strong> 入门</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_2/installation.html"><strong aria-hidden="true">2.1.</strong> 安装</a></li><li class="chapter-item expanded "><a href="chapter_2/hello_anchor.html"><strong aria-hidden="true">2.2.</strong> Hello, Anchor!</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_3/anchor_programs_in-depth.html"><strong aria-hidden="true">3.</strong> 深入了解Anchor程序</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_3/essentials.html"><strong aria-hidden="true">3.1.</strong> 核心内容</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_3/high-level_overview.html"><strong aria-hidden="true">3.1.1.</strong> 总览</a></li><li class="chapter-item expanded "><a href="chapter_3/the_accounts_struct.html"><strong aria-hidden="true">3.1.2.</strong> The Accounts Struct</a></li><li class="chapter-item expanded "><a href="chapter_3/the_program_module.html"><strong aria-hidden="true">3.1.3.</strong> The Program Module</a></li><li class="chapter-item expanded "><a href="chapter_3/errors.html"><strong aria-hidden="true">3.1.4.</strong> Errors</a></li><li class="chapter-item expanded "><a href="chapter_3/milestone_project_tic-tac-toe.html"><strong aria-hidden="true">3.1.5.</strong> 里程碑项目 - Tic-Tac-Toe</a></li></ol></li><li class="chapter-item expanded "><a href="chapter_3/intermediate.html"><strong aria-hidden="true">3.2.</strong> 进阶内容</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_3/CPIs.html"><strong aria-hidden="true">3.2.1.</strong> 跨程序调用Cross-Program Invocations</a></li><li class="chapter-item expanded "><a href="chapter_3/PDAs.html"><strong aria-hidden="true">3.2.2.</strong> 程序导出地址PDAs</a></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.3.</strong> 事件Events</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.4.</strong> 常量Constants</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.5.</strong> 零复制Zero-Copy</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.6.</strong> 权限控制Access Control</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.7.</strong> 构建和测试Building &amp; Testing</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">3.2.8.</strong> 里程碑项目 - The Nightclub</div></li></ol></li></ol></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.</strong> Anchor BTS</div></li><li><ol class="section"><li class="chapter-item expanded "><div><strong aria-hidden="true">4.1.</strong> Dispatch</div></li><li class="chapter-item expanded "><div><strong aria-hidden="true">4.2.</strong> The Discriminator</div></li><li class="spacer"></li></ol></li><li class="chapter-item expanded "><a href="chapter_5/anchor_tooling.html"><strong aria-hidden="true">5.</strong> Anchor相关工具</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="chapter_5/space.html"><strong aria-hidden="true">5.1.</strong> 数据所占空间</a></li><li class="chapter-item expanded "><a href="chapter_5/cli.html"><strong aria-hidden="true">5.2.</strong> 命令行CLI</a></li><li class="chapter-item expanded "><a href="chapter_5/avm.html"><strong aria-hidden="true">5.3.</strong> Anchor版本管理器AVM</a></li><li class="chapter-item expanded "><a href="chapter_5/anchor-toml_reference.html"><strong aria-hidden="true">5.4.</strong> Anchor.toml配置文件</a></li></ol></li><li class="chapter-item expanded "><a href="reference_links.html"><strong aria-hidden="true">6.</strong> 参考链接</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">The Anchor Book v0.23.0 中文版</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="引言"><a class="header" href="#引言">引言</a></h1>
+<p>欢迎来到The Anchor Book中文版! ⚓</p>
+<p>目前更新至<a href="https://github.com/project-serum/anchor-book">英文版</a>的这个<a href="https://github.com/project-serum/anchor-book/tree/0099a11a65390e16b6dd6e9b192758c14ffeeb72">commit</a>。</p>
+<p>这章会介绍什么是Anchor, 这个指南的结构, 还有一些看懂这个指南的必要基础。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="什么是anchor"><a class="header" href="#什么是anchor">什么是Anchor</a></h1>
+<p>Anchor 是一个帮你快速开发安全的Solana程序的框架。</p>
+<p>Anchor可以帮你快速开发程序，因为它简化了很多重复的样板代码，比如Accounts的序列化和反序列化，instruction的数据等。</p>
+<p>你更容易编写安全的代码，因为Anchor会帮你处理特定的安全验证。在这个基础让，Anchor还能让你更简洁的定义额外的验证，并让它们和你的业务逻辑解耦。</p>
+<p>这些方面都意味着，与其花时间应付繁复的原生Solana程序，你可以花更多时间在开发真正有用的部分，你的产品！</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="anchor文档"><a class="header" href="#anchor文档">Anchor文档</a></h1>
+<p>Anchor 的官方文档分为多个部分，就是你正读的这份指南，和参考资料。</p>
+<p>主要有三份参考资料. 一个针对<a href="https://docs.rs/anchor-lang/latest/anchor_lang/">core library</a> 还有每个官方客户端的文档，比如(<a href="https://project-serum.github.io/anchor/ts/index.html">typescript</a>和<a href="https://docs.rs/anchor-client/latest/anchor_client/">rust</a>). 这些资料很详细并且与代码联合紧密. 
+如果你已经了解自己在找什么，并且想深入了解具体的工作机理, 这些是最理想的资料。</p>
+<p>但是，如果你刚刚接触Anchor，你需要先了解Anchor的基本功能，然后再深入了解。这就是这个文档初衷。它的目的就是帮你入门Anchor，并熟悉它的基础功能。它会教给你Anchor的功能，这样你就可以自己去探索他相关资料了。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="必要基础"><a class="header" href="#必要基础">必要基础</a></h1>
+<p>这个指南假设你有Solana程序和Rust的基础知识. 理想条件下，你已经可以不用Anchor编写基本的Solana合约程序。 要看懂核心内容, 你至少要理解<a href="https://docs.solana.com/developing/programming-model/overview">Solana的编程模式</a>. 在这个基础上, 你应该已经读过了介绍Rust基础的<a href="https://doc.rust-lang.org/book/title-page.html">Rust book</a>的1-9章(通常你不需要高阶Rust特性来编写Anchor程序).</p>
+<p>如果你对Solana一点都不了解，你最好先从官方文档开始<a href="https://solana.com/developers">Solana developers page</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="入门"><a class="header" href="#入门">入门</a></h1>
+<p>这章手把手带你完成安装，并熟悉Anchor工作环境的文件夹结构。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="安装"><a class="header" href="#安装">安装</a></h1>
+<h2 id="rust"><a class="header" href="#rust">Rust</a></h2>
+<p>去 <a href="https://www.rust-lang.org/tools/install">这里</a> 安装 Rust.</p>
+<h2 id="solana"><a class="header" href="#solana">Solana</a></h2>
+<p>去 <a href="https://docs.solana.com/cli/install-solana-cli-tools">这里</a> 安装 Solana.</p>
+<h2 id="yarn"><a class="header" href="#yarn">Yarn</a></h2>
+<p>去 <a href="https://yarnpkg.com/getting-started/install">这里</a> 安装 Yarn.</p>
+<h2 id="anchor"><a class="header" href="#anchor">Anchor</a></h2>
+<h3 id="通过-pre-build-binary-在-x86_64-linux-安装"><a class="header" href="#通过-pre-build-binary-在-x86_64-linux-安装">通过 pre-build binary 在 x86_64 Linux 安装</a></h3>
+<p>Anchor 的二进制文件可以通过 NPM package <a href="https://www.npmjs.com/package/@project-serum/anchor-cli"><code>@project-serum/anchor-cli</code></a>安装. 目前只支持 <code>x86_64</code> Linux, 其他的OS你需要从源代码手动构建。</p>
+<h3 id="从源代码手动构建其他操作系统"><a class="header" href="#从源代码手动构建其他操作系统">从源代码手动构建（其他操作系统）</a></h3>
+<p>目前我们可以通过Cargo来安装CLI命令行。</p>
+<pre><code>cargo install --git https://github.com/project-serum/anchor --tag v0.20.1 anchor-cli --locked
+</code></pre>
+<p>在Linux系统，如果cargo install失败，你需要安装额外的依赖。在Ubuntu,</p>
+<pre><code>sudo apt-get update &amp;&amp; sudo apt-get upgrade &amp;&amp; sudo apt-get install -y pkg-config build-essential libudev-dev
+</code></pre>
+<p>现在，验证命令行CLI已经正确安装。</p>
+<pre><code>anchor --version
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="hello-anchor"><a class="header" href="#hello-anchor">Hello, Anchor!</a></h1>
+<p>要初始化一个项目，只需运行:</p>
+<pre><code>anchor init &lt;new-workspace-name&gt;
+</code></pre>
+<p>这会创建一个新的Anchor工作环境。这里是文件夹中的一些重要文件：</p>
+<ul>
+<li><code>.anchor</code> 文件夹: 这里包括最新的程序日志和一个用来测试的本地账本</li>
+<li><code>app</code> 文件夹: 如果你前端和合约放一个repo，你的frontend代码可以放到这个空文件夹里</li>
+<li><code>programs</code> 文件夹: 合约代码放这里. 这里可以有多个程序文件，但一开始只有一个叫<code>&lt;new-workspace-name&gt;</code>的程序文件夹. 理由有一个叫<code>lib.rs</code>的样本代码文件.</li>
+<li><code>tests</code> 文件夹: 这里有你的端到端测试. 已经包含<code>programs/&lt;new-workspace-name&gt;</code>的测试代码.</li>
+<li><code>migrations</code> 文件夹: 这里可以放你的部署和迁移脚本.</li>
+<li><code>Anchor.toml</code> 文件: 工作环境的配置文件. 在起始状态, 它包括：
+<ul>
+<li>项目在localnet(<code>[programs.localnet]</code>)的地址</li>
+<li>一个你可以上传项目的(<code>[registry]</code>)</li>
+<li>一个你可以在测试用使用的provider (<code>[provider]</code>)</li>
+<li>Anchor可以帮你执行的(<code>[scripts]</code>). <code>test</code> 脚本由 <code>anchor test</code>来触发运行. 你也可以通过<code>anchor run &lt;script_name&gt;</code>运行自己的脚本.</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="深入了解anchor程序"><a class="header" href="#深入了解anchor程序">深入了解Anchor程序</a></h1>
+<p>这个部分介绍如何用Anchor编写Solana程序. 每小节都包含样例代码, 所以推荐你在开始前创建一个新的Anchor项目，这样你可以一边读内容一边试着运行代码. 新项目可以命名为<code>hello-anchor</code>.</p>
+<pre><code>anchor init hello-anchor
+</code></pre>
+<p>这些小节会先介绍核心内容，然后再介绍一些相对进阶的内容。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="核心内容"><a class="header" href="#核心内容">核心内容</a></h1>
+<p>这章会介绍Anchor的核心功能，并包括了一个里程碑项目来测试你的理解。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="总结概述"><a class="header" href="#总结概述">总结概述</a></h1>
+<p>一个Anchor程序包括三部分. <code>program</code>模块, 带有<code>#[derive(Accounts)]</code>标记的Accounts structs, 还有<code>declareId</code>宏. <code>program</code>模块是我们编写业务逻辑的地方. Accounts structs是我们用来validate accounts的. <code>declareId</code>宏则创建了<code>ID</code>字段来储存程序的地址.</p>
+<p>当你打开一个崭新的Anchor项目, 你会看到如下的模版代码:</p>
+<pre><code class="language-rust ignore">// use this import to gain access to common anchor features
+use anchor_lang::prelude::*;
+
+// declare an id for your program
+declare_id!(&quot;Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS&quot;);
+
+// write your business logic here
+#[program]
+mod hello_anchor {
+    use super::*;
+    pub fn initialize(_ctx: Context&lt;Initialize&gt;) -&gt; ProgramResult {
+        Ok(())
+    }
+}
+
+// validate incoming accounts here
+#[derive(Accounts)]
+pub struct Initialize {}
+</code></pre>
+<p>在接下来的章节中，我们会详细介绍。但暂时看这段代码，注意到一个接口是怎么通过<code>ctx</code>参数关联到其对应的Accounts struct了么？参数的类型是<code>Context</code>，里面泛型包着一个Accounts struct，也就是说，这就是我们实现Accounts验证的struct，也就是这个例子里面的<code>Initialize</code>。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="accounts-struct"><a class="header" href="#accounts-struct">Accounts Struct</a></h1>
+<p>Accounts struct 是我们定义传给instruction的accounts的数据结构，并且也用来定义这些accounts需要满足的限制条件. 我们主要通过两种方法来实现: 类型和限制条件. </p>
+<h2 id="types类型"><a class="header" href="#types类型">Types类型</a></h2>
+<blockquote>
+<p><a href="https://docs.rs/anchor-lang/latest/anchor_lang/accounts/index.html">Account Types 类型的文档</a></p>
+</blockquote>
+<p>每个类型都是为了针对一个特定的问题. 详细的解释可以参考<a href="https://docs.rs/anchor-lang/latest/anchor_lang/accounts/index.html">文档</a>. 这里我们只介绍最重要的类, <code>Account</code>类型.</p>
+<h3 id="account-类型"><a class="header" href="#account-类型">Account 类型</a></h3>
+<blockquote>
+<p><a href="https://docs.rs/anchor-lang/latest/anchor_lang/accounts/account/struct.Account.html">Account Reference</a></p>
+</blockquote>
+<p><code>Account</code>类型可以用来处理instruction中涉及到account所包含的，再反序列化之后的数据. 例如，接下来这个例子里，我们想再account中写一些数据:</p>
+<pre><code class="language-rust ignore">use anchor_lang::prelude::*;
+
+declare_id!(&quot;Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS&quot;);
+
+#[program]
+mod hello_anchor {
+    use super::*;
+    pub fn set_data(ctx: Context&lt;SetData&gt;, data: u64) -&gt; ProgramResult {
+        ctx.accounts.my_account.data = data;
+        Ok(())
+    }
+}
+
+#[account]
+#[derive(Default)]
+pub struct MyAccount {
+    data: u64
+}
+
+#[derive(Accounts)]
+pub struct SetData&lt;'info&gt; {
+    #[account(mut)]
+    pub my_account: Account&lt;'info, MyAccount&gt;
+}
+</code></pre>
+<p><code>Account</code>是围绕<code>T</code>的泛型. <code>T</code>是一个我们可以自己定义的类型. 在这个例子里,我们创建了<code>MyAccount</code> struct，它只有一个<code>data</code> 字段在储存一个<code>u64</code>. Account 要求 <code>T</code> 实现一些特定的functions (例如用来序列化和反序列化<code>T</code>的functions). 通常, 你可以用<code>#[account]</code>宏来为你的类型配置这些functions，如例子中所示。</p>
+<p>最重要的一点是, <code>#[account]</code>宏会把账户的owner设置为它所在crate的<code>ID</code> (由我们一开始的<code>declareId</code>命令所创建). Account类型会帮我们自动验证传入instruction的<code>AccountInfo</code>所对应的<code>owner</code>字段指向了正确的程序. 在这个例子里, <code>MyAccount</code> 是在同一个crate 中定义的，所有<code>Account</code>会验证<code>my_account</code>的owner字段和<code>declareId</code>中定义的一致.</p>
+<h4 id="对非anchor程序的accounts使用accounta-t"><a class="header" href="#对非anchor程序的accounts使用accounta-t">对非Anchor程序的accounts使用<code>Account&lt;'a, T&gt;</code></a></h4>
+<p>有些情况下，你需要你的程序和非Anchor程序交互。你仍然可以利用<code>Account</code>的好处，但是你需要写一个自定义wrapper类型来替代<code>#[account]</code>宏. 比如, Anchor为token程序的accounts提供的wrapper类型TokenAccount，就可以直接用在<code>Account</code>里面. </p>
+<pre><code class="language-rust ignore">use anchor_lang::prelude::*;
+
+declare_id!(&quot;Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS&quot;);
+
+#[program]
+mod hello_anchor {
+    use super::*;
+    pub fn set_data(ctx: Context&lt;SetData&gt;, data: u64) -&gt; ProgramResult {
+        if ctx.accounts.token_account.amount &gt; 0 {
+            ctx.accounts.my_account.data = data;
+        }
+        Ok(())
+    }
+}
+
+#[account]
+#[derive(Default)]
+pub struct MyAccount {
+    data: u64,
+    mint: Pubkey
+}
+
+#[derive(Accounts)]
+pub struct SetData&lt;'info&gt; {
+    #[account(mut)]
+    pub my_account: Account&lt;'info, MyAccount&gt;,
+    #[account(
+        constraint = my_account.mint == token_account.mint,
+        has_one = owner
+    )]
+    pub token_account: Account&lt;'info, TokenAccount&gt;,
+    pub owner: Signer&lt;'info&gt;
+}
+</code></pre>
+<p>在这个例子里，如果调用的caller有admin权限，我们就可以写入account的<code>data</code>字段。我们通过检验Caller是不是拥有admin token 来检验它是不是有admin权限，具体说想要更新MyAccount的mint要吻合所有的token的mint。而这些检验都是由“constraints限制条件”这个功能实现的。我们会在下一节详细介绍。
+这里的重点是我们用<code>TokenAccount</code>类来包裹在<code>Account</code>struct上来提供需要的functions，这样Anchor就可以确定通过instruction传入的account的确是属于token program的，并且自动反序列化。
+这也意味着我们可以在我们的限制条件constraints和instruction中使用<code>TokenAccount</code>的properties(例如. <code>token_account.mint</code>)。</p>
+<p>更多内容可以参考<a href="https://docs.rs/anchor-lang/latest/anchor_lang/struct.Account.html">reference for the Account type</a>，来学习具体如何实现你自己的wrapper类来应付非Anchor程序的account。</p>
+<h2 id="constraints限制条件"><a class="header" href="#constraints限制条件">Constraints限制条件</a></h2>
+<blockquote>
+<p><a href="https://docs.rs/anchor-lang/latest/anchor_lang/derive.Accounts.html">Constraints reference</a></p>
+</blockquote>
+<p>Account类型可以帮我们做很多，但是不够动态，不足以应付一个安全程序所需要的各种验证。而这就是Constraints可以帮我们的地方。</p>
+<p>我们可以用下面的格式给account添加constraints:</p>
+<pre><code class="language-rust ignore">#[account(&lt;constraints&gt;)]
+pub account: AccountType
+</code></pre>
+<p>有的constraints支持自定义错误类型Custom Errors(之后我们会详细介绍<a href="chapter_3/./errors.html">errors</a>):</p>
+<pre><code class="language-rust ignore">#[account(...,&lt;constraint&gt; @ MyError::MyErrorVariant, ...)]
+pub account: AccountType
+</code></pre>
+<p>在上面的一些例子里, 我们用<code>mut</code> constraint来标记<code>my_account</code>为可更改. 我们用<code>has_one</code>来验证<code>token_account.owner == owner.key()</code>. 最终我们用<code>constraint</code>来验证任意的表达式; 在下面的这个例子中，我们验证<code>TokenAccount</code>和admin的mint是同一个.</p>
+<pre><code class="language-rust ignore">#[derive(Accounts)]
+pub struct SetData&lt;'info&gt; {
+    #[account(mut)]
+    pub my_account: Account&lt;'info, MyAccount&gt;,
+    #[account(
+        constraint = my_account.mint == token_account.mint,
+        has_one = owner
+    )]
+    pub token_account: Account&lt;'info, TokenAccount&gt;,
+    pub owner: Signer&lt;'info&gt;
+}
+</code></pre>
+<p>所有constraints的细节都在文档里. 在核心内容的里程碑项目中，我们会介绍最重要的一些constraint。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="program模块"><a class="header" href="#program模块">Program模块</a></h1>
+<p>Program模块是我们定义业务逻辑的地方. 具体来说我们通过定义客户端可以调用的function来实现. 比如上一章中看到的<code>set_data</code> function。</p>
+<pre><code class="language-rust ignore">#[program]
+mod hello_anchor {
+    use super::*;
+    pub fn set_data(ctx: Context&lt;SetData&gt;, data: u64) -&gt; ProgramResult {
+        if ctx.accounts.token_account.amount &gt; 0 {
+            ctx.accounts.my_account.data = data;
+        }
+        Ok(())
+    }
+}
+</code></pre>
+<h2 id="context参数"><a class="header" href="#context参数">Context参数</a></h2>
+<blockquote>
+<p><a href="https://docs.rs/anchor-lang/latest/anchor_lang/context/index.html">Context文档</a></p>
+</blockquote>
+<p>每个接口function都会接受<code>Context</code>类型作为第一个参数. 通过context参数，我们可以拿到accounts (<code>ctx.accounts</code>), 执行程序的program id (<code>ctx.program_id</code>), 还有余下的accounts (<code>ctx.remaining_accounts</code>). <code>remaining_accounts</code> 是一个vector类型，它包含所有通过instruction传入，但没有定义在<code>Accounts</code> struct中的account. 这个方法可以处理account的数量为变量的情况, 例如.在不清楚有多少个玩家参与的情况下初始化一个游戏.</p>
+<h2 id="instruction-data"><a class="header" href="#instruction-data">Instruction Data</a></h2>
+<p>如果你的function需要instruction中传入额外的参数, 你只需要在context参数后面，多加参数就行. Anchor会自动帮你把instruction data反序列化为参数. 参数的数量没有限制. 你也可以传入自己定义的类型，但你需要使用<code>#[derive(AnchorDeserialize)]</code>宏属性，或者自己实现<code>AnchorDeserialize</code>. 这里是一个使用自定义类型作为参数的例子(<code>Data</code>):</p>
+<pre><code class="language-rust ignore">...
+
+#[program]
+mod hello_anchor {
+    use super::*;
+    pub fn set_data(ctx: Context&lt;SetData&gt;, data: Data) -&gt; ProgramResult {
+        ctx.accounts.my_account.data = init_data.data;
+        ctx.accounts.my_account.age = init_data.age;
+        Ok(())
+    }
+}
+
+#[account]
+#[derive(Default)]
+pub struct MyAccount {
+    pub data: u64,
+    pub age: u8
+}
+
+#[derive(AnchorSerialize, AnchorDeserialize, Eq, PartialEq, Clone, Copy, Debug)]
+pub struct Data {
+    pub data: u64,
+    pub age: u8
+}
+
+...
+</code></pre>
+<p>很方便的, <code>#[account]</code>为<code>MyAccount</code>实现了<code>Anchor(De)Serialize</code>,所以上面的例子也可以继续简化.</p>
+<pre><code class="language-rust ignore">...
+
+#[program]
+mod hello_anchor {
+    use super::*;
+    pub fn set_data(ctx: Context&lt;SetData&gt;, data: MyAccount) -&gt; ProgramResult {
+        ctx.accounts.my_account.set_inner(data);
+        Ok(())
+    }
+}
+
+#[account]
+#[derive(Default)]
+pub struct MyAccount {
+    pub data: u64,
+    pub age: u8
+}
+
+...
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="errors错误处理"><a class="header" href="#errors错误处理">Errors错误处理</a></h1>
+<p>Anchor程序中定义有三类错误. Anchor Internal Errors即Anchor内部错误, Custom Errors自定义错误, 和非Anchor错误.</p>
+<p>Anchor代码生成的客户端可以自动解析Anchor Internal Errors还有Custom Errors，这样就可以展示相应的Error Code和报错信息。但是对非Anchor错误做不到这一点，这是就会把底层solana客户端库的返回原始raw error返回。</p>
+<blockquote>
+<p>(最终, 所有程序都返回同样的Error: <a href="https://docs.rs/solana-program/latest/solana_program/program_error/enum.ProgramError.html"><code>ProgramError</code></a>. 这个Error有一个自定义的错误编号数字字段. 这就是Anchor存内部错误和自定义错误的error codes的地方. 客户端会先读取这个字段，然后读取IDL(通过这个把error code 映射到他们的报错信息) 来显示报错信息(Anchor内部错误error number=&gt;message的映射是硬编码在客户端的). 这意味着不支持显示动态生成的报错信息，因为所有报错信息都因编码在客户端了。很快anchor会用日志logs来改变仅仅通过返回错误码来返回错误。这些日志也可以从客户端读取，并且支持动态错误信息。)</p>
+</blockquote>
+<h2 id="anchor内部错误"><a class="header" href="#anchor内部错误">Anchor内部错误</a></h2>
+<blockquote>
+<p><a href="https://docs.rs/anchor-lang/latest/anchor_lang/__private/enum.ErrorCode.html">Anchor内部Error Code 文档</a></p>
+</blockquote>
+<p>Anchor有很多不同的内部error codes。这些并不是面向用户的，但是通过文档了解这些报错信息和他们的错误码，以及报错的原因还是很有好处的。例如，有些错误会在一个限制条件未被满足的时候被触发。例如一个被标记为<code>mut</code>的账户但<code>is_writable</code>熟悉却是<code>false</code>。</p>
+<h2 id="custom-errors自定义错误"><a class="header" href="#custom-errors自定义错误">Custom Errors自定义错误</a></h2>
+<p>你可以通过error attribute(<code>#[error]</code>)来自定义你程序独有的错误信息。只需要把它加到一个你自定义的enum上，然后你就可以把enum作为报错信息在程序中使用了。在此基础上，你还可以加一个message属性在enum的变型上，然后客户端就可以显示对应的报错信息了。自定义错误信息Custom Error的错误码从<a href="https://docs.rs/anchor-lang/latest/anchor_lang/__private/constant.ERROR_CODE_OFFSET.html">自定义错误offset开始</a>.</p>
+<pre><code class="language-rust ignore">#[program]
+mod hello_anchor {
+    use super::*;
+    pub fn set_data(ctx: Context&lt;SetData&gt;, data: MyAccount) -&gt; ProgramResult {
+        if data.data &gt;= 100 {
+            return Err(MyError::DataTooLarge.into());    
+        }
+        ctx.accounts.my_account.set_inner(data);
+        Ok(())
+    }
+}
+
+
+#[error]
+pub enum MyError {
+    #[msg(&quot;MyAccount may only hold data below 100&quot;)]
+    DataTooLarge
+}
+</code></pre>
+<p>你可以用<a href="https://docs.rs/anchor-lang/latest/anchor_lang/macro.require.html"><code>require</code></a> 宏来简化errors的处理. 上面的代码可以这样来简化 (注意 <code>&gt;=</code> 改成了 <code>&lt;</code>):</p>
+<pre><code class="language-rust ignore">#[program]
+mod hello_anchor {
+    use super::*;
+    pub fn set_data(ctx: Context&lt;SetData&gt;, data: MyAccount) -&gt; ProgramResult {
+        require!(data.data &lt; 100, MyError::DataTooLarge); 
+        ctx.accounts.my_account.set_inner(data);
+        Ok(())
+    }
+}
+
+
+#[error]
+pub enum MyError {
+    #[msg(&quot;MyAccount may only hold data below 100&quot;)]
+    DataTooLarge
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="里程碑项目---tic-tac-toe三连棋游戏"><a class="header" href="#里程碑项目---tic-tac-toe三连棋游戏">里程碑项目 - Tic-Tac-Toe三连棋游戏</a></h1>
+<p>你现在已经做好准备开发你的第一个Anchor项目了。创建一个新的Anchor工作环境：</p>
+<pre><code>anchor init tic-tac-toe
+</code></pre>
+<p>这个程序会有两个指令(instructions). 首先，我们需要创建游戏(setup)，我们需要保存谁在玩，并且创建一个可以玩的棋盘。然后，每个选手轮流行动，直到一方胜出或者达到平局。</p>
+<h2 id="创建游戏setting-up-the-game"><a class="header" href="#创建游戏setting-up-the-game">创建游戏Setting up the game</a></h2>
+<h3 id="状态state"><a class="header" href="#状态state">状态State</a></h3>
+<p>我们先开始思考一下我们应该储存哪。每局游戏有玩家，回合，游戏板，还有游戏状态。这个游戏状态描述游戏是不是还在进行，平局或者一方赢了。我们可以把所有这些状态都存在一个account里面。着意味着每新一局游戏都会有自己的account。把下面这段代码加到<code>lib.rs</code>的最底部：</p>
+<pre><code class="language-rust ignore">#[account]
+pub struct Game {
+    players: [Pubkey; 2],          // 64
+    turn: u8,                      // 1
+    board: [[Option&lt;Sign&gt;; 3]; 3], // 9 * (1 + 1) = 18
+    state: GameState,              // 32 + 1
+}
+</code></pre>
+<p>这就是game account. 在字段定义边上, 你看一看到每个字段要求的字节数. 这在之后会用到. 让我们把<code>Sign</code>和<code>GameState</code>类型也加上。</p>
+<pre><code class="language-rust ignore">#[derive(AnchorSerialize, AnchorDeserialize, Clone, PartialEq, Eq)]
+pub enum GameState {
+    Active,
+    Tie,
+    Won { winner: Pubkey },
+}
+
+#[derive(
+    AnchorSerialize,
+    AnchorDeserialize,
+    FromPrimitive,
+    ToPrimitive,
+    Copy,
+    Clone,
+    PartialEq,
+    Eq
+)]
+pub enum Sign {
+    X,
+    O,
+}
+</code></pre>
+<p><code>GameState</code>和<code>Sign</code>都通过derive引入了一些traits. 其中<code>AnchorSerialize</code>和<code>AnchorDeserialize</code>最重要. 所有在被<code>#[account]</code>标记的类型内部面使用的类型必须实现这两个traits(或者本身也被标记了<code>#[account]</code>). 所有其他的traits也对我们的游戏逻辑很重要，我们会在之后用到。通常一个好的习惯是使用更多的traits来让程序对外部的接口用户更友好(参考 <a href="https://rust-lang.github.io/api-guidelines/interoperability.html#types-eagerly-implement-common-traits-c-common-traits">Rust的API指南</a>) 但是处于简洁考虑, 在这个指南里我们就不详细介绍了。</p>
+<p>暂时这还不能运行，因为<code>FromPrimitive</code>和<code>ToPrimitive</code>对程序是未知的。 在<code>src</code>外面的<code>Cargo.toml</code>文件  (不是工作环境跟目的)然后加上这两个依赖:</p>
+<pre><code class="language-toml">num-traits = &quot;0.2&quot;
+num-derive = &quot;0.3&quot;
+</code></pre>
+<p>接下来, 在<code>lib.rs</code>最上面import:</p>
+<pre><code class="language-rust ignore">use num_derive::*;
+use num_traits::*;
+</code></pre>
+<h3 id="setup-instruction命令"><a class="header" href="#setup-instruction命令">Setup Instruction命令</a></h3>
+<p>在我们实现游戏逻辑之前, 我们可以先加上在初始状态创建游戏的instruction。把现有的instruction function还有accounts struct为<code>setup_game</code>和<code>SetupGame</code>。 现在我们来考虑一下创建游戏需要哪些accounts。显然，我们需要game account。在对它进行各种赋值之前，我们要先创建它。因此我们要用<code>init</code>限制条件。</p>
+<pre><code class="language-rust ignore">#[derive(Accounts)]
+pub struct SetupGame&lt;'info&gt; {
+    #[account(init)]
+    pub game: Account&lt;'info, Game&gt;
+}
+</code></pre>
+<p><code>init</code>应该会立刻报错并且要添加一个payer. 为什么需要payer呢? 因为<code>init</code>会创建一个<code>免租</code>(<code>rent-exempt</code>) accounts因此必须有人要付出足够的费用. 自然的, 如果我们想用某人的钱, 我们肯定需要他签名，并且把他的账号标记为可更改。</p>
+<pre><code class="language-rust ignore">#[derive(Accounts)]
+pub struct SetupGame&lt;'info&gt; {
+    #[account(init, payer = player_one)]
+    pub game: Account&lt;'info, Game&gt;,
+    #[account(mut)]
+    pub player_one: Signer&lt;'info&gt;
+}
+</code></pre>
+<p><code>init</code>可能还是有报错. 它需要system program也在struct里面，因为<code>init</code>创建game account，需要对system program调用。 那我们把它也加上。</p>
+<pre><code class="language-rust ignore">#[derive(Accounts)]
+pub struct SetupGame&lt;'info&gt; {
+    #[account(init, payer = player_one)]
+    pub game: Account&lt;'info, Game&gt;,
+    #[account(mut)]
+    pub player_one: Signer&lt;'info&gt;,
+    pub system_program: Program&lt;'info, System&gt;
+}
+</code></pre>
+<p>完成<code>SetupGame</code>还有最后一步。每个account都是按照固定的空间大小创建的。 <code>init</code>可以估计一个account所需要的空间，如果它由<code>Default</code>导出。因为，让我们来给<code>Game</code>实现一下<code>Default</code>。</p>
+<pre><code class="language-rust ignore">#[account]
+#[derive(Default)] &lt;-- add this
+pub struct Game {...
+</code></pre>
+<p>and <code>GameState</code>.</p>
+<pre><code class="language-rust ignore">impl Default for GameState {
+    fn default() -&gt; Self {
+        Self::Active
+    }
+}
+</code></pre>
+<p>这样, <code>SetupGame</code>就完成了，我们可以继续<code>setup_game</code> function的开发。(如果你想做侦探，你可以试着检查，为什么目前这个实现依然有问题。 提示: 查看<a href="https://borsh.io/">borsh 文档</a>，也就是Anchor用的序列化库。如果你看不出来问题，也没关系。 我们很快就会介绍它)</p>
+<p>让我们先给<code>setup_game</code>function加个参数.</p>
+<pre><code class="language-rust ignore">pub fn setup_game(ctx: Context&lt;SetupGame&gt;, player_two: Pubkey) -&gt; ProgramResult {
+    Ok(())
+}
+</code></pre>
+<p>为什么不直接把<code>player_two</code>作为account加到accounts struct里面呢？有两个原因，首先，加到accounts里面会让交易占用更多的空间因为需要记录account是不是可写入(writable)和是不是签名者(signer)。但是我们并不需要这两个状态，只需要地址address。第二个也是更重要一个原因，如果用到了同一个账号，一个交易可以影响到网络中同时在处理的其他交易。例如，如果我们把<code>player_two</code>加到了accounts struct, 那再处理我们的交易的时候，任何其他交易都不可以编辑<code>player_two</code>的account。 也就是说, 我们阻塞了所有其他的想编辑<code>player_two</code>的account的交易, 即使我们根本不想动这个account. 我们只在乎它的地址！</p>
+<p>完成instruction function，设置game的初始值:</p>
+<pre><code class="language-rust ignore">pub fn setup_game(ctx: Context&lt;SetupGame&gt;, player_two: Pubkey) -&gt; ProgramResult {
+    let game = &amp;mut ctx.accounts.game;
+    game.players = [ctx.accounts.player_one.key(), player_two];
+    game.turn = 1;
+    Ok(())
+}
+</code></pre>
+<p>现在，运行<code>anchor build</code>。除了编译你的程序，这个命令还会为你的程序创建一个<a href="https://en.wikipedia.org/wiki/Interface_description_language">IDL</a>。 具体位置在<code>target/idl</code>. Anchor的typescript客户端可以自动解析IDL，并根据它生成函数. 这意味着每个Anchor程序都有免费的Typescript客户端(自动生成)! (理论上说, 测试之前你不需要调用anchor build. <code>anchor test</code>会帮你调用.)</p>
+<h3 id="测试setup-instruction"><a class="header" href="#测试setup-instruction">测试Setup Instruction</a></h3>
+<p>该测试代码了! 去项目根目录的<code>tests</code>文件夹. 打开<code>tic-tac-toe.ts</code>文件然后删掉<code>it</code>test. 然后, 把下面的带吧添加到<code>describe</code>部分:</p>
+<pre><code class="language-typescript">  it('setup game!', async() =&gt; {
+    const gameKeypair = anchor.web3.Keypair.generate();
+    const playerOne = program.provider.wallet;
+    const playerTwo = anchor.web3.Keypair.generate();
+    await program.rpc.setupGame(playerTwo.publicKey, {
+      accounts: {
+        game: gameKeypair.publicKey,
+        playerOne: playerOne.publicKey,
+        systemProgram: anchor.web3.SystemProgram.programId
+      },
+      signers: [gameKeypair]
+    });
+
+    let gameState = await program.account.game.fetch(gameKeypair.publicKey);
+    expect(gameState.turn).to.equal(1);
+    expect(gameState.players)
+      .to
+      .eql([playerOne.publicKey, playerTwo.publicKey]);
+    expect(gameState.state).to.eql({ active: {} });
+    expect(gameState.board)
+      .to
+      .eql([[null,null,null],[null,null,null],[null,null,null]]);
+  });
+</code></pre>
+<p>然后把这个加到文件开头:</p>
+<pre><code class="language-typescript">import { expect } from 'chai';
+</code></pre>
+<p>测试开始我们先创建一些公私钥对。值得注意的是, <code>playerOne</code>并不是公私钥对，而是程序provider的钱包. Provider的细节是在项目根目录的<code>Anchor.toml</code>文件中定义的。
+然后, 我们发送交易。因为anchor的typescript客户端解析了IDL,所有交易的输入都有类型。例如，如果你少加了一个account,typescript就会报错。 
+接下来我们介绍transaction function的结构. 第一是instruction的参数。 就这个function来说, 是second player的公钥。接下来是accounts. 最后, 我们加上signers数组。 这里我们必须加上<code>gameKeypair</code>也就是game的公私钥对，因为每当一个account被创建, 它都要对创建账号的transaction签名。 我们不需要加<code>playerOne</code>，尽管它在程序中定义的是<code>Signer</code>类型，因为它是程序的provider并且本身就会对transaction签名。</p>
+<p>在transaction返回结果后，我们可以读取game account的状态。通常你可以通过<code>program.account</code> namespace来读取account的状态。 
+最后，我们来验证game已经被成功的创建了。Anchor的typescript客户端会这样反序列化rust的enum: <code>{ active: {}}</code>对应一个没有字段的变型，而<code>{ won: { winner: Pubkey }}</code> 对应有字段值的变型. <code>Option</code>的<code>None</code>变型会被转化为<code>null</code>.<code>Some(x)</code>会被转化为<code>x</code>反序列化的结果.</p>
+<p>现在运行<code>anchor test</code>。这会启动(之后自动关闭)一个本地的validator(确认在着之前你自己没有运行validator)然后运行你定义在<code>Anchor.toml</code>中的测试脚本。</p>
+<h2 id="实现游戏playing-the-game"><a class="header" href="#实现游戏playing-the-game">实现游戏Playing the game</a></h2>
+<h3 id="the-play-instruction"><a class="header" href="#the-play-instruction">The Play Instruction</a></h3>
+<p><code>Play</code> accounts struct很容易懂. 我们需要一个game account还有一个玩家player:</p>
+<pre><code class="language-rust ignore">#[derive(Accounts)]
+pub struct Play&lt;'info&gt; {
+    #[account(mut)]
+    pub game: Account&lt;'info, Game&gt;,
+    pub player: Signer&lt;'info&gt;,
+}
+</code></pre>
+<p><code>player</code>需要签名否则，其他人也可以来冒名顶替.</p>
+<p>接下来，我们实现游戏逻辑:</p>
+<pre><code class="language-rust ignore">impl Game {
+    pub fn is_active(&amp;self) -&gt; bool {
+        self.state == GameState::Active
+    }
+
+    fn current_player_index(&amp;self) -&gt; usize {
+        ((self.turn - 1) % 2) as usize
+    }
+
+    pub fn current_player(&amp;self) -&gt; Pubkey {
+        self.players[self.current_player_index()]
+    }
+
+    pub fn play(&amp;mut self, tile: &amp;Tile) -&gt; ProgramResult {
+        if !self.is_active() {
+            return Err(TicTacToeError::GameAlreadyOver.into());
+        }
+        match tile {
+            tile
+            @ Tile {
+                row: 0..=2,
+                column: 0..=2,
+            } =&gt; match self.board[tile.row as usize][tile.column as usize] {
+                Some(_) =&gt; return Err(TicTacToeError::TileAlreadySet.into()),
+                None =&gt; {
+                    self.board[tile.row as usize][tile.column as usize] =
+                        Some(Sign::from_usize(self.current_player_index()).unwrap());
+                }
+            },
+            _ =&gt; return Err(TicTacToeError::TileOutOfBounds.into()),
+        }
+
+        self.update_state();
+
+        if let GameState::Active = self.state {
+            self.turn += 1;
+        }
+
+        Ok(())
+    }
+
+    fn is_winning_trio(&amp;self, trio: [(usize, usize); 3]) -&gt; bool {
+        let [first, second, third] = trio;
+        self.board[first.0][first.1].is_some()
+            &amp;&amp; self.board[first.0][first.1] == self.board[second.0][second.1]
+            &amp;&amp; self.board[first.0][first.1] == self.board[third.0][third.1]
+    }
+
+    fn update_state(&amp;mut self) {
+        for i in 0..=2 {
+            // three of the same in one row
+            if self.is_winning_trio([(i, 0), (i, 1), (i, 2)]) {
+                self.state = GameState::Won {
+                    winner: self.current_player(),
+                };
+                return;
+            }
+            // three of the same in one column
+            if self.is_winning_trio([(0, i), (1, i), (2, i)]) {
+                self.state = GameState::Won {
+                    winner: self.current_player(),
+                };
+                return;
+            }
+        }
+
+        // three of the same in one diagonal
+        if self.is_winning_trio([(0, 0), (1, 1), (2, 2)])
+            || self.is_winning_trio([(0, 2), (1, 1), (2, 0)])
+        {
+            self.state = GameState::Won {
+                winner: self.current_player(),
+            };
+            return;
+        }
+
+        // reaching this code means the game has not been won,
+        // so if there are unfilled tiles left, it's still active
+        for row in 0..=2 {
+            for column in 0..=2 {
+                if self.board[row][column].is_none() {
+                    return;
+                }
+            }
+        }
+
+        // game has not been won
+        // game has no more free tiles
+        // -&gt; game ends in a tie
+        self.state = GameState::Tie;
+    }
+}
+</code></pre>
+<p>这段代码我们就不一起细看了，因为是比较简单的rust代码。毕竟三连棋本身就是个简单的游戏！大致上，每当<code>play</code>被调用，会有这些动作:</p>
+<ol>
+<li>return error if 游戏结束 or
+return error if 输入的行或者列的位置在3x3 board外面 or
+return error if tile on 板子上的位置已经被填过了</li>
+<li>确定现在的player 并且把落棋子的位置设为 X 或 O</li>
+<li>更新 game state</li>
+<li>if game 还是 active状态, 增加 the turn回合数</li>
+</ol>
+<p>目前, 代码还是无法编译，因为我们需要实现<code>Tile</code>类型</p>
+<pre><code class="language-rust ignore">#[derive(AnchorSerialize, AnchorDeserialize)]
+pub struct Tile {
+    row: u8,
+    column: u8,
+}
+</code></pre>
+<p>and the <code>TicTacToeError</code> type.</p>
+<pre><code class="language-rust ignore">#[error]
+pub enum TicTacToeError {
+    TileOutOfBounds,
+    TileAlreadySet,
+    GameAlreadyOver,
+    NotPlayersTurn,
+}
+</code></pre>
+<p>最后, 我们把 <code>play</code> function添加到program模块。</p>
+<pre><code class="language-rust ignore">pub fn play(ctx: Context&lt;Play&gt;, tile: Tile) -&gt; ProgramResult {
+    let game = &amp;mut ctx.accounts.game;
+
+    require!(
+        game.current_player() == ctx.accounts.player.key(),
+        TicTacToeError::NotPlayersTurn
+    );
+
+    game.play(&amp;tile)
+}
+</code></pre>
+<p>在accounts struct中我们已经检查过<code>player</code> account已经对transaction签名，但是我们没有检查这个<code>player</code>是不是我们预期game中所对应的<code>player</code>。这就是<code>play</code>里面<code>require</code>的作用。</p>
+<h3 id="testing-the-play-instruction"><a class="header" href="#testing-the-play-instruction">Testing the Play Instruction</a></h3>
+<p>测试<code>play</code> instruction的方法和之前类似。 为了不写重复代码, 我们可以在测试文件的最上面创建一个helper function:</p>
+<pre><code class="language-typescript">async function play(program, game, player,
+    tile, expectedTurn, expectedGameState, expectedBoard) {
+  await program.rpc.play(tile, {
+    accounts: {
+      player: player.publicKey,
+      game
+    },
+    signers: player instanceof (anchor.Wallet as any) ? [] : [player]
+  });
+
+  const gameState = await program.account.game.fetch(game);
+  expect(gameState.turn).to.equal(expectedTurn);
+  expect(gameState.state).to.eql(expectedGameState);
+  expect(gameState.board)
+    .to
+    .eql(expectedBoard);
+}
+</code></pre>
+<p>你可以创建一个新的<code>it</code>测试, 像上个测试里面那样创建game, 然后连续调用我们刚加的<code>play</code> function来模拟玩一整局游戏。 Let's begin with the first turn:</p>
+<pre><code class="language-typescript">it('player one wins', async() =&gt; {
+    const gameKeypair = anchor.web3.Keypair.generate();
+    const playerOne = program.provider.wallet;
+    const playerTwo = anchor.web3.Keypair.generate();
+    await program.rpc.setupGame(playerTwo.publicKey, {
+      accounts: {
+        game: gameKeypair.publicKey,
+        playerOne: playerOne.publicKey,
+        systemProgram: anchor.web3.SystemProgram.programId
+      },
+      signers: [gameKeypair]
+    });
+
+    let gameState = await program.account.game.fetch(gameKeypair.publicKey);
+    expect(gameState.turn).to.equal(1);
+    expect(gameState.players)
+      .to
+      .eql([playerOne.publicKey, playerTwo.publicKey]);
+    expect(gameState.state).to.eql({ active: {} });
+    expect(gameState.board)
+      .to
+      .eql([[null,null,null],[null,null,null],[null,null,null]]);
+
+    await play(
+      program,
+      gameKeypair.publicKey,
+      playerOne,
+      {row: 0, column: 0},
+      2,
+      { active: {}, },
+      [
+        [{x:{}},null,null],
+        [null,null,null],
+        [null,null,null]
+      ]
+    );
+});
+</code></pre>
+<p>然后再次运行<code>anchor test</code>，但你会发现一个报错:</p>
+<pre><code>Error: 3004: Failed to serialize the account
+</code></pre>
+<p>这咋办? 我们知道这肯定是运行play时候的问题, 因为<code>setupGame</code>的测试运行成功。
+另外, 报错说<code>serialize</code>(序列化), 不是<code>deserialize</code>(反序列化). 所以我们的代码运行了，然后anchor试图保存数据，但出错了。
+这类报错通常意味着我们的account太小了，无法保存所有的数据，而在这里恰恰就是这个问题。</p>
+<p>我们再细看一下<code>Game</code> struct还有我们创建它的方法:</p>
+<pre><code class="language-rust ignore">#[account]
+#[derive(Default)]
+pub struct Game {
+    players: [Pubkey; 2],          // 64
+    turn: u8,                      // 1
+    board: [[Option&lt;Sign&gt;; 3]; 3], // 9 * (1 + 1) = 18
+    state: GameState,              // 32 + 1
+}
+
+...
+#[account(init, payer = player_one)]
+pub game: Account&lt;'info, Game&gt;,
+...
+
+</code></pre>
+<p>回忆我们使用<code>Default</code>标记<code>Game</code>，因为<code>init</code>会根据<code>Default</code>试图推到所需要的正确的空间大小, “试图”是关键词. 再我们不明确定义account所需要的空间(<code>space</code> requirement)，Anchor会调用account的<code>default</code>，然后把它用borsh序列库转化为一个vector类型. 然后Anchor会用这个vector的长度作为account所需要的空间大小。
+那我们一步一步的用<a href="https://borsh.io/">borsh的文档</a>来过一下我们的代码. 旁边的注释告诉我们必须的空间大小要求, 也就是，对应类型的最大所占空间。</p>
+<ul>
+<li>Pubkey as a vector has a length of <code>32</code> so <code>2*32 = 64</code> ✅</li>
+<li>u8 as a vector has a length of <code>1</code> so <code>1 = 1</code> ✅</li>
+<li>board's default (<code>9 * None</code>) as a vector has a length of <code>9 != 18</code> ❌</li>
+<li>state's default as a vector is <code>1 != 33</code> ❌</li>
+</ul>
+<p>结论是<code>init</code>目前是预留了75字节给我们的account但account可能需要(64 + 1 + 18 + 33) = 116字节。
+我们可以这样把这个数字加到我们的实现里面:</p>
+<pre><code class="language-rust ignore">impl Game {
+    const MAXIMUM_SIZE: usize = 116;
+
+    ... // other functions
+}
+</code></pre>
+<pre><code class="language-rust ignore">...
+#[account(init, payer = player_one, space = Game::MAXIMUM_SIZE + 8)]
+pub game: Account&lt;'info, Game&gt;,
+...
+</code></pre>
+<p>再game状态的基础上, 我们还要额外加上<code>8</code>字节作为space. 这个额外的空间是留点给Anchor自动设置的<code>discriminator</code>的。 简短说,discriminator是Anchor用来区分同一个程序中不同account的标识。</p>
+<blockquote>
+<p>(那用<code>mem::size_of&lt;Game&gt;()</code>? 这个方法几乎可以，但还是不行。 问题是borsh库总是把option的标识序列化为1字节然后额外的x字节如果值是<code>Some</code>. Rust在可以的时候会用null-pointer优化来让Option的标识占零字节, 所有有的时候option和它的内容一样大。<code>Sign</code>就是被这样处理的。 这意味着<code>MAXIMUM_SIZE</code>可能会被表示为<code>mem::size_of&lt;Game&gt;() + 9</code>，这还是不对的)</p>
+</blockquote>
+<p>再运行<code>anchor test</code>应该就可以成功了。 你可以自己完成余下的测试了。试着模拟一个平局和赢的局!</p>
+<p>完善的测试还应该包括试图攻击合约的测试。你可以检查你时候妥善的考虑到了用非常规参数恶意调用你<code>play</code>的情况。 比如:</p>
+<pre><code class="language-typescript">try {
+  await play(
+    program,
+    gameKeypair.publicKey,
+    playerTwo,
+    {row: 5, column: 1}, // out of bounds row
+    4,
+    { active: {}, },
+    [
+      [{x:{}},{x: {}},null],
+      [{o:{}},null,null],
+      [null,null,null]
+    ]
+  );
+  // we use this to make sure we definitely throw an error
+  chai.assert(false, &quot;should've failed but didn't &quot;);
+} catch (error) {
+  expect(error.code).to.equal(6000);
+}
+</code></pre>
+<h2 id="部署"><a class="header" href="#部署">部署</a></h2>
+<p>Solana有三个网路: 主网<code>mainnet-beta</code>, 开发网<code>devnet</code>, 和测试网<code>testnet</code>.
+对开发者来说, <code>devnet</code>和<code>mainnet-beta</code>最值得关注。 <code>devnet</code>是你最接近真实的测试环境，相比本地环境<code>localnet</code>。 <code>testnet</code>通常只和Validators相关。</p>
+<p>我们将在<code>devnet</code>部署.</p>
+<p>这里是你的部署检查清单 🚀</p>
+<ol>
+<li>运行 <code>anchor build</code>. 你的program keypair会保存于<code>target/deploy</code>. 记得这个需要保密. 你可以在其他的网络使用.</li>
+<li>运行 <code>solana address -k target/deploy/tic_tac_toe-keypair.json</code>然后复制地址到<code>lib.rs</code>顶部的<code>declare_id!</code>宏.</li>
+<li>运行 <code>anchor build</code> 多一次. 这步很必要，因为需要保证新的program id存入二进制里面。</li>
+<li>更改<code>Anchor.toml</code>中的<code>provider.cluster</code>变量为<code>devnet</code>.</li>
+<li>运行 <code>anchor deploy</code></li>
+<li>运行 <code>anchor test</code></li>
+</ol>
+<p>有关部署的内容还有很多。例如，理解BPFLoader的工作原理,如何管理keys, 还有如何升级你的程序等等. 继续读更多文档来学习把!</p>
+<p>干得漂亮! 你完成了核心内容. 现在可以去学习更高级的Anchor内容了。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="中等进阶内容"><a class="header" href="#中等进阶内容">中等进阶内容</a></h1>
+<p>这章会教你中等进阶的Anchor概念, 比如PDAs（程序导出地址）和跨程序调用。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cross-program-invocations跨程序调用"><a class="header" href="#cross-program-invocations跨程序调用">Cross-Program Invocations跨程序调用</a></h1>
+<p>我们经常需要在一个程序中调用另外一个程序。在Solana里，这是通过跨程序调用实现的（CPIs）。</p>
+<p>来看一下这个傀儡大师操控傀儡的例子。当然，这不是一个非常实际的例子，但是足够说明一些CPIs中需要注意的细节。在这章最后的里程碑项目会有一个更接近实际场景的有很多CPIs调用的例子。</p>
+<h2 id="搭建基础的cpi功能"><a class="header" href="#搭建基础的cpi功能">搭建基础的CPI功能</a></h2>
+<p>创建一个新的workspace</p>
+<pre><code>anchor init puppet
+</code></pre>
+<p>然后复制下面的代码：</p>
+<pre><code class="language-rust ignore">use anchor_lang::prelude::*;
+
+declare_id!(&quot;Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS&quot;);
+
+#[program]
+pub mod puppet {
+    use super::*;
+    pub fn initialize(_ctx: Context&lt;Initialize&gt;) -&gt; Result&lt;()&gt; {
+        Ok(())
+    }
+
+    pub fn set_data(ctx: Context&lt;SetData&gt;, data: u64) -&gt; Result&lt;()&gt; {
+        let puppet = &amp;mut ctx.accounts.puppet;
+        puppet.data = data;
+        Ok(())
+    }
+}
+
+#[derive(Accounts)]
+pub struct Initialize&lt;'info&gt; {
+    #[account(init, payer = user, space = 8 + 8)]
+    pub puppet: Account&lt;'info, Data&gt;,
+    #[account(mut)]
+    pub user: Signer&lt;'info&gt;,
+    pub system_program: Program&lt;'info, System&gt;,
+}
+
+#[derive(Accounts)]
+pub struct SetData&lt;'info&gt; {
+    #[account(mut)]
+    pub puppet: Account&lt;'info, Data&gt;,
+}
+
+#[account]
+pub struct Data {
+    pub data: u64,
+}
+</code></pre>
+<p>上面的代码并没什么特别的地方，只是一个非常简单的程序！有意思的地方是它将怎么和我们接下来要创建的程序交互。（通过跨程序调用，也就是CPI）</p>
+<p>在Workspace中运行</p>
+<pre><code>anchor new puppet-master
+</code></pre>
+<p>inside the workspace and copy the following code:</p>
+<pre><code class="language-rust ignore">use anchor_lang::prelude::*;
+use puppet::cpi::accounts::SetData;
+use puppet::program::Puppet;
+use puppet::{self, Data};
+
+declare_id!(&quot;HmbTLCmaGvZhKnn1Zfa1JVnp7vkMV4DYVxPLWBVoN65L&quot;);
+
+#[program]
+mod puppet_master {
+    use super::*;
+    pub fn pull_strings(ctx: Context&lt;PullStrings&gt;, data: u64) -&gt; Result&lt;()&gt; {
+        let cpi_program = ctx.accounts.puppet_program.to_account_info();
+        let cpi_accounts = SetData {
+            puppet: ctx.accounts.puppet.to_account_info(),
+        };
+        let cpi_ctx = CpiContext::new(cpi_program, cpi_accounts);
+        puppet::cpi::set_data(cpi_ctx, data)
+    }
+}
+
+#[derive(Accounts)]
+pub struct PullStrings&lt;'info&gt; {
+    #[account(mut)]
+    pub puppet: Account&lt;'info, Data&gt;,
+    pub puppet_program: Program&lt;'info, Puppet&gt;,
+}
+</code></pre>
+<p>然后加这行代码 <code>puppet_master = &quot;HmbTLCmaGvZhKnn1Zfa1JVnp7vkMV4DYVxPLWBVoN65L&quot;</code> 到你<code>Anchor.toml</code>文件的<code>[programs.localnet]</code>部分。 最后, 引入puppet program到puppet-master program，这需要在<code>puppet-master</code> 程序文件夹中的<code>Cargo.toml</code> 文件里，要把下面的代码加到<code>[dependencies]</code>部分:</p>
+<pre><code class="language-toml">puppet = { path = &quot;../puppet&quot;, features = [&quot;cpi&quot;]}
+</code></pre>
+<p><code>features = [&quot;cpi&quot;]</code>的配置是为了让我们不仅能够使用puppet的类，还能使用puppet的instruction builders还有cpi函数。 如果没有这些，我们就不得不用更低抽象层的solana syscalls。幸好anchor提供了这些接口的抽象，用起来会容易的多。 开启<code>cpi</code>功能之后, puppet-master程序就可以access到<code>puppet::cpi</code>模块。 Anchor 自动生成这个模块并且包含了专门的instructions builders还有对应的cpi helpers函数。</p>
+<p>对于puppet程序, puppet-master使用<code>puppet::cpi::accounts</code> 模块提供的<code>SetData</code> instruction builder struct来提交puppet程序期望的<code>SetData</code> instruction的accounts. 然后，puppet-master创建一个新的cpi context 并把它传入<code>puppet::cpi::set_data</code>cpi函数。 这个函数的功能和puppet program中的<code>set_data</code> function完全一样，只是这里的要传的context是<code>CpiContext</code>而不是<code>Context</code>。</p>
+<p>初始化CPI的代码和可能会分散业务逻辑代码的可读性，所以推荐的做法是把它放到instruction的<code>impl</code>代码。puppet-master程序会是这个样子:</p>
+<pre><code class="language-rust ignore">use anchor_lang::prelude::*;
+use puppet::cpi::accounts::SetData;
+use puppet::program::Puppet;
+use puppet::{self, Data};
+
+declare_id!(&quot;HmbTLCmaGvZhKnn1Zfa1JVnp7vkMV4DYVxPLWBVoN65L&quot;);
+
+#[program]
+mod puppet_master {
+    use super::*;
+    pub fn pull_strings(ctx: Context&lt;PullStrings&gt;, data: u64) -&gt; Result&lt;()&gt; {
+        puppet::cpi::set_data(ctx.accounts.set_data_ctx(), data)
+    }
+}
+
+#[derive(Accounts)]
+pub struct PullStrings&lt;'info&gt; {
+    #[account(mut)]
+    pub puppet: Account&lt;'info, Data&gt;,
+    pub puppet_program: Program&lt;'info, Puppet&gt;,
+}
+
+impl&lt;'info&gt; PullStrings&lt;'info&gt; {
+    pub fn set_data_ctx(&amp;self) -&gt; CpiContext&lt;'_, '_, '_, 'info, SetData&lt;'info&gt;&gt; {
+        let cpi_program = self.puppet_program.to_account_info();
+        let cpi_accounts = SetData {
+            puppet: self.puppet.to_account_info()
+        };
+        CpiContext::new(cpi_program, cpi_accounts)
+    }
+}
+</code></pre>
+<p>我们可以验证有所得步骤都按预期可以运行，这秩序把<code>puppet.ts</code>文件得内容换成如下:</p>
+<pre><code class="language-ts">import * as anchor from '@project-serum/anchor';
+import { Program } from '@project-serum/anchor';
+import { Keypair, SystemProgram } from '@solana/web3.js';
+import { expect } from 'chai';
+import { Puppet } from '../target/types/puppet';
+import { PuppetMaster } from '../target/types/puppet_master';
+
+describe('puppet', () =&gt; {
+  anchor.setProvider(anchor.Provider.env());
+
+  const puppetProgram = anchor.workspace.Puppet as Program&lt;Puppet&gt;;
+  const puppetMasterProgram = anchor.workspace.PuppetMaster as Program&lt;PuppetMaster&gt;;
+
+  const puppetKeypair = Keypair.generate();
+
+  it('Does CPI!', async () =&gt; {
+    await puppetProgram.rpc.initialize({
+      accounts: {
+        puppet: puppetKeypair.publicKey,
+        user: anchor.getProvider().wallet.publicKey,
+        systemProgram: SystemProgram.programId
+      },
+      signers: [puppetKeypair]
+    });
+
+    await puppetMasterProgram.rpc.pullStrings(new anchor.BN(42),{
+      accounts: {
+        puppetProgram: puppetProgram.programId,
+        puppet: puppetKeypair.publicKey
+      }
+    })
+
+    expect((await puppetProgram.account.data
+      .fetch(puppetKeypair.publicKey)).data.toNumber()).to.equal(42);
+  });
+});
+</code></pre>
+<p>然后运行<code>anchor test</code>.</p>
+<h2 id="privilege-extension权限得延伸性"><a class="header" href="#privilege-extension权限得延伸性">Privilege Extension权限得延伸性</a></h2>
+<p>CPIs 会把权限由调用者延续给被调用的程序. puppet account是传给puppet-master的mutable account但它对于通过CPI调用的puppet程序依然是mutable的(否则测试中的<code>expect</code>会报错). 这同样是适用于用户签名(signatures).</p>
+<p>如果你想验证这一点，可以在puppet程序加个<code>authority</code>字段给<code>Data</code>struct.</p>
+<pre><code class="language-rust ignore">#[account]
+pub struct Data {
+    pub data: u64,
+    pub authority: Pubkey
+}
+</code></pre>
+<p>然后调整<code>initialize</code>函数:</p>
+<pre><code class="language-rust ignore">pub fn initialize(ctx: Context&lt;Initialize&gt;, authority: Pubkey) -&gt; Result&lt;()&gt; {
+    ctx.accounts.puppet.authority = authority;
+    Ok(())
+}
+</code></pre>
+<p>加<code>32</code>给<code>puppet</code>的<code>space</code> constraint因为<code>Data</code> struct新加了<code>Pubkey</code>字段。</p>
+<pre><code class="language-rust ignore">#[derive(Accounts)]
+pub struct Initialize&lt;'info&gt; {
+    #[account(init, payer = user, space = 8 + 8 + 32)]
+    pub puppet: Account&lt;'info, Data&gt;,
+    #[account(mut)]
+    pub user: Signer&lt;'info&gt;,
+    pub system_program: Program&lt;'info, System&gt;,
+}
+</code></pre>
+<p>然后, 调整<code>SetData</code>的validation struct:</p>
+<pre><code class="language-rust ignore">#[derive(Accounts)]
+pub struct SetData&lt;'info&gt; {
+    #[account(mut, has_one = authority)]
+    pub puppet: Account&lt;'info, Data&gt;,
+    pub authority: Signer&lt;'info&gt;
+}
+</code></pre>
+<p><code>has_one</code>这个限制条件检查<code>puppet.authority = authority.key()</code>.</p>
+<p>puppet-master程序现在也需要调整:</p>
+<pre><code class="language-rust ignore">use anchor_lang::prelude::*;
+use puppet::cpi::accounts::SetData;
+use puppet::program::Puppet;
+use puppet::{self, Data};
+
+declare_id!(&quot;HmbTLCmaGvZhKnn1Zfa1JVnp7vkMV4DYVxPLWBVoN65L&quot;);
+
+#[program]
+mod puppet_master {
+    use super::*;
+    pub fn pull_strings(ctx: Context&lt;PullStrings&gt;, data: u64) -&gt; Result&lt;()&gt; {
+        puppet::cpi::set_data(ctx.accounts.set_data_ctx(), data)
+    }
+}
+
+#[derive(Accounts)]
+pub struct PullStrings&lt;'info&gt; {
+    #[account(mut)]
+    pub puppet: Account&lt;'info, Data&gt;,
+    pub puppet_program: Program&lt;'info, Puppet&gt;,
+    // Even though the puppet program already checks that authority is a signer
+    // using the Signer type here is still required because the anchor ts client
+    // can not infer signers from programs called via CPIs
+    pub authority: Signer&lt;'info&gt;
+}
+
+impl&lt;'info&gt; PullStrings&lt;'info&gt; {
+    pub fn set_data_ctx(&amp;self) -&gt; CpiContext&lt;'_, '_, '_, 'info, SetData&lt;'info&gt;&gt; {
+        let cpi_program = self.puppet_program.to_account_info();
+        let cpi_accounts = SetData {
+            puppet: self.puppet.to_account_info(),
+            authority: self.authority.to_account_info()
+        };
+        CpiContext::new(cpi_program, cpi_accounts)
+    }
+}
+</code></pre>
+<p>最后, 改一下test:</p>
+<pre><code class="language-ts">import * as anchor from '@project-serum/anchor';
+import { Program } from '@project-serum/anchor';
+import { Keypair, SystemProgram } from '@solana/web3.js';
+import { Puppet } from '../target/types/puppet';
+import { PuppetMaster } from '../target/types/puppet_master';
+import { expect } from 'chai';
+
+describe('puppet', () =&gt; {
+  anchor.setProvider(anchor.Provider.env());
+
+  const puppetProgram = anchor.workspace.Puppet as Program&lt;Puppet&gt;;
+  const puppetMasterProgram = anchor.workspace.PuppetMaster as Program&lt;PuppetMaster&gt;;
+
+  const puppetKeypair = Keypair.generate();
+  const authorityKeypair = Keypair.generate();
+
+  it('Does CPI!', async () =&gt; {
+    await puppetProgram.rpc.initialize(authorityKeypair.publicKey, {
+      accounts: {
+        puppet: puppetKeypair.publicKey,
+        user: anchor.getProvider().wallet.publicKey,
+        systemProgram: SystemProgram.programId,
+      },
+      signers: [puppetKeypair]
+    });
+
+    await puppetMasterProgram.rpc.pullStrings(new anchor.BN(42),{
+      accounts: {
+        puppetProgram: puppetProgram.programId,
+        puppet: puppetKeypair.publicKey,
+        authority: authorityKeypair.publicKey
+      },
+      signers: [authorityKeypair]
+    })
+
+    expect((await puppetProgram.account.data
+      .fetch(puppetKeypair.publicKey)).data.toNumber()).to.equal(42);
+  });
+});
+</code></pre>
+<p>测试通过了，这是因为传给puppet-master的signature权限会被延申到puppet program，而puppet程序用signature来确认puppet account确实对交易进行了签名。</p>
+<blockquote>
+<p>Privilege extension特权延申算然很方便但是也很危险。如果一个对恶意程序的CPI被无意中调用了，就很危险了。
+因为这个程序的调用中程序和调用者的权限一样，相当于你给了恶意程序权限。
+Anchor 有两个办法可以保护你无意中调用恶意程序的CPIs：
+首先, <code>Program&lt;'info, T&gt;</code> 类型会检查所提供的account是应该传入的正确的程序<code>T</code>。
+如果你忘了用<code>Program</code>类型, 自动生成的cpi function
+(比如上个例子中的<code>puppet::cpi::set_data</code>)
+也会检查<code>cpi_program</code>的传入参数是应该传入的正确的程序。</p>
+</blockquote>
+<h2 id="重新加载一个account"><a class="header" href="#重新加载一个account">重新加载一个Account</a></h2>
+<p>在puppet程序中, <code>Account&lt;'info, T&gt;</code> 类型被用来表示<code>puppet</code> account. 如果通过CPI更改了一个该类型的account，那么在调用程序（caller）中的这个account在调用之后是不会变化的。</p>
+<p>你可以很容易自己验证这一点，可以把下面的代码加到<code>puppet::cpi::set_data(ctx.accounts.set_data_ctx(), data)</code> CPI调用之后。</p>
+<pre><code class="language-rust ignore">puppet::cpi::set_data(ctx.accounts.set_data_ctx(), data)?;
+if ctx.accounts.puppet.data != 42 {
+    panic!();
+}
+Ok(())
+</code></pre>
+<p>现在你的测试会失败。为啥呢？之前的测试是可以跑通的，所以CPI确实把<code>data</code>字段更新为<code>42</code>了。</p>
+<p><code>data</code>字段没有在调用函数中更新的原因是，只有在instruction开始被处理的时候<code>Account&lt;'info, T&gt;</code>类型会反序列化输入的字节为一个新的struct。在这之后，这个struct就不再会随着链上account的数据更新而更新了。CPI更改了链上的account，但是因为调用程序中的struct和链上的account并没有联系，所以调用程序中的struct并不发生变化。</p>
+<p>如果你需要读最新的刚刚被CPI更新过的account的状态，你可以调用<code>reload</code>方法，这样会重新反序列化account。如果你把<code>ctx.accounts.puppet.reload()?;</code>加到CPI调用之后，测试就可以通过了。</p>
+<pre><code class="language-rust ignore">puppet::cpi::set_data(ctx.accounts.set_data_ctx(), data)?;
+ctx.accounts.puppet.reload()?;
+if ctx.accounts.puppet.data != 42 {
+    panic!();
+}
+Ok(())
+</code></pre>
+<h2 id="如何从cpi返回值"><a class="header" href="#如何从cpi返回值">如何从CPI返回值</a></h2>
+<p>在Solana 1.8.12之后, <code>set_return_data</code>和<code>get_return_data</code> syscalls可以被用来写和读CPIs的返回值。 虽然你已经可以在用Anchor的程序中直接使用这些接口, Anchor暂时还没有提供搭更好的抽象来简化。</p>
+<p>syscalls的返回值最大只可以有1024字节，所以我们依然有必要介绍老的获取CPI返回值的方法，这样可以应付大于1024字节的情况。</p>
+<p>通过共同使用CPI和<code>reload</code>我们可以模拟返回值的功能。比如，一个例子就是，我们可能没有直接给<code>data</code>字段赋值为42，而是对<code>42</code>进行了一些计算，然后把结果保存到了<code>data</code>字段。然后puppet-master就可以在CPI之后调用<code>reload</code>，来使用计算的结果，实现返回值的效果。</p>
+<h2 id="programs-as-signers由程序来签名"><a class="header" href="#programs-as-signers由程序来签名">Programs as Signers由程序来签名</a></h2>
+<p>还有另外一个功能可以通过CPIs实现。但是，要了解的话，我们必须先学习什么是PDAs (由程序导出的地址)。这些我们会在下一个章讲解。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pdas程序导出地址"><a class="header" href="#pdas程序导出地址">PDAs程序导出地址</a></h1>
+<p>知道如果使用PDAs是Solana编程最重要的技巧之一。
+他们可以让变成模式变得更简单，更安全。那什么是PDAs呢？</p>
+<p>PDAs (program derived addresses) 是有特殊属性的address，也就是地址。</p>
+<p>和普通地址不同的是, PDAs不是真的公钥(public keys)，因此他们也没有相对应的私钥(private keys)。PDAs有两个使用场景。 第一，他们提供一种在链上实现类似hashmap的结构（key有开发者定义，value是地址）；第二，他们可以实现让程序为instruction签名。</p>
+<h2 id="如何生成一个pda"><a class="header" href="#如何生成一个pda">如何生成一个PDA</a></h2>
+<p>在深入了解怎么在Anchor中使用PDA之前，我们先简单介绍一下什么是PDAs。</p>
+<p>PDAs是通过对几个用户定义的seeds值和program的id一起进行哈希运算生成的:</p>
+<pre><code class="language-rust ignore">// pseudo code
+let pda = hash(seeds, program_id);
+</code></pre>
+<p>seeds值可以是随意定义。 可以是公钥, 一个string, 或者一个数字的数组等等。</p>
+<p>但又50%的概率这个哈希函数还是会生成一个合法的public key(但PDAs不能是public keys), 所以我们可以搜一个bump值到一起哈希直到我们找到一个不是合法的public key作为PDA:</p>
+<pre><code class="language-rust ignore">// pseudo code
+fn find_pda(seeds, program_id) {
+  for bump in 0..256 {
+    let potential_pda = hash(seeds, bump, program_id);
+    if is_pubkey(potential_pda) {
+      continue;
+    }
+    return (potential_pda, bump);
+  }
+  panic!(&quot;Could not find pda after 256 tries.&quot;);
+}
+</code></pre>
+<p>理论上有可能256次轮询之后还是找不bump，但概率很小可以忽略。
+如果你对具体PDA怎么算的感兴趣，可以看<a href="https://docs.rs/solana-program/latest/solana_program/pubkey/struct.Pubkey.html#method.find_program_address"><code>solana_program</code> source code</a>.</p>
+<p>找到的第一个可以生成PDA的bump通常被称为“标准bump”。其他的bump值也可以生成合法的PDA，但推荐的做法是只用标准bump来避免误会。</p>
+<h2 id="使用pdas"><a class="header" href="#使用pdas">使用PDAs</a></h2>
+<p>接下来我们会展示PDAs的功能和如何在Anchor中实现这些功能。</p>
+<h3 id="用pdas实现类似hashmap的结构"><a class="header" href="#用pdas实现类似hashmap的结构">用PDAs实现类似Hashmap的结构</a></h3>
+<p>在我们深入了解如果在Anchor中使用PDAs来创建hashmaps之前，我们先了解一下如果不用Anchor怎么实现。</p>
+<h4 id="用pdas构建hashmaps"><a class="header" href="#用pdas构建hashmaps">用PDAs构建hashmaps</a></h4>
+<p>PDAs是通过对bump，program id，用户所选择的seed进行哈希计算得到的。
+这些seed可以被用来构建链上的类似的hashmap的结构.</p>
+<p>例如,假设我们想开发一个网页游戏,并且需要储存一些用户的统计数据. 比如用户的等级和他们在游戏中的名字. 那么你可以创建一个大概这样的account:</p>
+<pre><code class="language-rust ignore">pub struct UserStats {
+  level: u16,
+  name: String,
+  authority: Pubkey
+}
+</code></pre>
+<p><code>authority</code>就是这个struct所属的用户.</p>
+<p>这个方法会有这样一个问题, 它可以很容易的通过用户的stats账户拿到用户的account地址(读取<code>authority</code>字段), 但是如果你开始只有用户的account地址(更常见的情况, 比如用户刚打开页面), 我们怎么能找到所对应的stats 账号呢?
+这是做不到的. 这就成问题了, 因为你的游戏很可能有同时需要用户的stats账号和它的authority的instruction, 这意味着我们需要把这些账号同时传入instruction (例如, 用来改名字的<code>ChangeName</code> instruction). 也许前端可以在localStorage存一个映射用户地址到用户stats的mapping. 但这个办法一旦在用户不小心清空localStorage的时候就会出问题.</p>
+<p>如果用PDAs, 那我们可以用下面的结构:</p>
+<pre><code class="language-rust ignore">pub struct UserStats {
+  level: u16,
+  name: String,
+  bump: u8
+}
+</code></pre>
+<p>然后把用户和用户的stats account的对应关系编码到用户stats account的地址本身中(通过使用用户address作为seed的一部分).</p>
+<p>复用上面的伪代码:</p>
+<pre><code class="language-rust ignore">// pseudo code
+let seeds = [b&quot;user-stats&quot;, authority];
+let (pda, bump) = find_pda(seeds, game_program_id);
+</code></pre>
+<p>当一个用户connect到你的站点之后, 这个PDA的计算可以在前端完成, 只需要用户的account地址作为<code>authority</code>. 生成的PDA然后就可以作为用户stats account的地址. <code>b&quot;user-stats&quot;</code>是作为命名域加到seed中的, 因为用户也许还有其他的PDAs.
+如果用户还需要定义一个表示库存的账号, 那这个库存账号的PDA可以用下面的seeds导出:</p>
+<pre><code class="language-rust ignore">let seeds = [b&quot;inventory&quot;, authority];
+</code></pre>
+<p>总结一下, 我们用PDAs实现了一个用户到用户的stats account的mapping. 这里并没有一个单独的hashmap例可以通过<code>get</code>函数来调用. 这种映射是隐含的. 每个用户的stats account可以通过特定的seeds (&quot;user-stats&quot; 加上用户的地址)作为输入参数, 由<code>find_pda</code>函数来找到.</p>
+<h4 id="anchor中如果用pda搭建hashmaps"><a class="header" href="#anchor中如果用pda搭建hashmaps">Anchor中如果用PDA搭建hashmaps</a></h4>
+<p>继续上一小节中的例子, 创建一个新的workspace</p>
+<pre><code>anchor init game
+</code></pre>
+<p>然后复制下面的代码</p>
+<pre><code class="language-rust ignore">use anchor_lang::prelude::*;
+
+declare_id!(&quot;Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS&quot;);
+
+#[program]
+pub mod game {
+    use super::*;
+    // handler function
+    pub fn create_user_stats(ctx: Context&lt;CreateUserStats&gt;, name: String) -&gt; Result&lt;()&gt; {
+        let user_stats = &amp;mut ctx.accounts.user_stats;
+        user_stats.level = 0;
+        if name.as_bytes().len() &gt; 200 {
+            // proper error handling omitted for brevity
+            panic!();
+        }
+        user_stats.name = name;
+        user_stats.bump = *ctx.bumps.get(&quot;user_stats&quot;).unwrap();
+        Ok(())
+    }
+}
+
+#[account]
+pub struct UserStats {
+    level: u16,
+    name: String,
+    bump: u8,
+}
+
+// validation struct
+#[derive(Accounts)]
+pub struct CreateUserStats&lt;'info&gt; {
+    #[account(mut)]
+    pub user: Signer&lt;'info&gt;,
+    // space: 8 discriminator + 2 level + 4 name length + 200 name + 1 bump
+    #[account(
+        init,
+        payer = user,
+        space = 8 + 2 + 4 + 200 + 1, seeds = [b&quot;user-stats&quot;, user.key().as_ref()], bump
+    )]
+    pub user_stats: Account&lt;'info, UserStats&gt;,
+    pub system_program: Program&lt;'info, System&gt;,
+}
+</code></pre>
+<p>在account validation struct中, 我们将<code>seeds</code>和<code>init</code>一起使用来创建PDA.
+额外的, 我们还加了一个空的<code>bump</code>限制条件来告诉Anchor我们要使用标准bump.
+然后, 在handler方法里面, 我们可以调用<code>ctx.bumps.get(&quot;user_stats&quot;)</code>来获取anchor找到的bump, 然后把它存到user stats account里面.
+如果在这之后我们想要在另外一个不同的instruction中使用这里创建的PDA, 我们可以用一个新的validation struct (这会通用调用<code>hash(seeds, user_stats.bump, game_program_id)</code>验证<code>user_stats</code> account确实是我们这里创建的):</p>
+<pre><code class="language-rust ignore">// validation struct
+#[derive(Accounts)]
+pub struct ChangeUserName&lt;'info&gt; {
+    pub user: Signer&lt;'info&gt;,
+    #[account(mut, seeds = [b&quot;user-stats&quot;, user.key().as_ref()], bump = user_stats.bump)]
+    pub user_stats: Account&lt;'info, UserStats&gt;,
+}
+</code></pre>
+<p>然后是另一个handler function:</p>
+<pre><code class="language-rust ignore">// handler function (add this next to the create_user_stats function in the game module)
+pub fn change_user_name(ctx: Context&lt;ChangeUserName&gt;, new_name: String) -&gt; Result&lt;()&gt; {
+    if new_name.as_bytes().len() &gt; 200 {
+        // proper error handling omitted for brevity
+        panic!();
+    }
+    ctx.accounts.user_stats.name = new_name;
+    Ok(())
+}
+</code></pre>
+<p>最后, 我们来添加一个测试用例. 复制下面的代码到<code>game.ts</code>.</p>
+<pre><code class="language-ts">import * as anchor from '@project-serum/anchor';
+import { Program } from '@project-serum/anchor';
+import { PublicKey, SystemProgram } from '@solana/web3.js';
+import { Game } from '../target/types/game';
+import { expect } from 'chai';
+
+describe('game', async() =&gt; {
+
+anchor.setProvider(anchor.Provider.env());
+
+  const program = anchor.workspace.Game as Program&lt;Game&gt;;
+
+  it('Sets and changes name!', async () =&gt; {
+    const [userStatsPDA, _] = await PublicKey
+      .findProgramAddress(
+        [
+          anchor.utils.bytes.utf8.encode(&quot;user-stats&quot;),
+          anchor.getProvider().wallet.publicKey.toBuffer()
+        ],
+        program.programId
+      );
+
+    await program.rpc.createUserStats(&quot;brian&quot;, {
+      accounts: {
+        user: anchor.getProvider().wallet.publicKey,
+        userStats: userStatsPDA,
+        systemProgram: SystemProgram.programId
+      }
+    });
+
+    expect((await program.account.userStats.fetch(userStatsPDA)).name).to.equal(&quot;brian&quot;);
+
+    await program.rpc.changeUserName(&quot;tom&quot;, {
+      accounts: {
+        user: anchor.getProvider().wallet.publicKey,
+        userStats: userStatsPDA
+      }
+    })
+
+    expect((await program.account.userStats.fetch(userStatsPDA)).name).to.equal(&quot;tom&quot;);
+  });
+});
+</code></pre>
+<p>正如我们在之前的段落中描述的, 我们用了一个<code>find</code>来查找PDA. 然后我们就可以像对待普通address一样使用这个PDA(几乎). 当我们调用 <code>createUserStats</code>的时候, 我们不需要把PDA添加到<code>[signers]</code>, 即使创建新账号需要一个签名.
+这是因为作为PDA是无法在程序外部对transaction进行签名的(因为PDA并不是真的public key, 所以也就没有对应的private key来签名). 作为替代方案, 签名是在对system program进行CPI调用的时候添加的.
+这具体是什么原理, 我们会在<a href="chapter_3/PDAs.html#%E8%AE%A9%E7%A8%8B%E5%BA%8F%E4%BD%9C%E4%B8%BASigners%E7%AD%BE%E5%90%8D">让程序作为Signers签名</a>小节介绍.</p>
+<h4 id="保证唯一性"><a class="header" href="#保证唯一性">保证唯一性</a></h4>
+<p>这个hashmap的结构的一个侧面的结果是保证了唯一性. 当<code>init</code>和<code>seeds</code>还有<code>bump</code>一起使用的时候, 它总会先搜索标准bump. 这意味着它只能被调用一次(因为第二次调用的时候, 同样地址的PDA已经被初始化了). 为演示保证唯一性有多强大, 我们拿一个区中心化交易所的应用来举例子. 在这个交易所的程序中, 任何人都可以用两种资产创建一个新的市场. 但是, 程序的创建者希望流动性更加集中并且每两个资产的组合应该只有一个对应的市场存在. 这个不需要PDA也可以实现, 但会需要一个表示全局的状态的来保存所有不同的市场. 然后在市场创建的时候, 程序会查资产的组后是否已经在全局市场列表中存在. 使用PDA的化就容易的多了. 任何市场可以直接通过对应的两个资产导出的PDA. 程序只需要检查导出的两个PDAs(因为两个地址作为seed的前后次序不同, 可以导出两个地址如[asset1, asset2] 和 [asset2, asset1])是否存在.</p>
+<h3 id="让程序作为signers签名"><a class="header" href="#让程序作为signers签名">让程序作为Signers签名</a></h3>
+<p>创建PDAs需要PDAs对system program的<code>createAccount</code>CPI签名. 这怎么实现呢?</p>
+<p>PDAs不是public keys, 所以他们是不可以对任何数据签名的. 但是, PDAs还是可以对CPI进行&quot;伪&quot;签名.
+在Anchor中,要对一个PDA签名, 你必须把<code>CpiContext::new(cpi_program, cpi_accounts)</code>改为<code>CpiContext::new_with_signer(cpi_program, cpi_accounts, seeds)</code>, 这里<code>seeds</code>参数是指seeds <em>还有</em> PDA创建的时候产生的bump.
+当CPI被调用的时候, 对每个在<code>cpi_accounts</code>中的account, Solana的runtime都会检查<code>hash(seeds, current_program_id) == account address</code>是否是true. 如果是, 那个account的<code>is_signer</code>flag就会被设为true.
+这意味着, 一个有某程序program X导出的PDA, 只可以被用来由progrom X产生的CPI调用. 这也意味着, 宏观看, PDA的签名可以被认作程序的签名.</p>
+<p>这显然是好消息, 因为对于很多程序来说, 程序本身需要作为一些资产的Authority(程序需要能够签名).
+比如说, 借贷协议的程序需要管理被用户存如的抵押物, 而自动做市商(AMM)需要管理流动性池子里面的代币.</p>
+<p>让我们在回到puppet workspace, 然后加一个PDA的签名.</p>
+<p>首先, 更新puppet-master的代码:</p>
+<pre><code class="language-rust ignore">use anchor_lang::prelude::*;
+use puppet::cpi::accounts::SetData;
+use puppet::program::Puppet;
+use puppet::{self, Data};
+
+declare_id!(&quot;HmbTLCmaGvZhKnn1Zfa1JVnp7vkMV4DYVxPLWBVoN65L&quot;);
+
+#[program]
+mod puppet_master {
+    use super::*;
+    pub fn pull_strings(ctx: Context&lt;PullStrings&gt;, bump: u8, data: u64) -&gt; Result&lt;()&gt; {
+        let bump = &amp;[bump][..];
+        puppet::cpi::set_data(
+            ctx.accounts.set_data_ctx().with_signer(&amp;[&amp;[bump][..]]),
+            data,
+        )
+    }
+}
+
+#[derive(Accounts)]
+pub struct PullStrings&lt;'info&gt; {
+    #[account(mut)]
+    pub puppet: Account&lt;'info, Data&gt;,
+    pub puppet_program: Program&lt;'info, Puppet&gt;,
+    /// CHECK: only used as a signing PDA
+    pub authority: UncheckedAccount&lt;'info&gt;,
+}
+
+impl&lt;'info&gt; PullStrings&lt;'info&gt; {
+    pub fn set_data_ctx(&amp;self) -&gt; CpiContext&lt;'_, '_, '_, 'info, SetData&lt;'info&gt;&gt; {
+        let cpi_program = self.puppet_program.to_account_info();
+        let cpi_accounts = SetData {
+            puppet: self.puppet.to_account_info(),
+            authority: self.authority.to_account_info(),
+        };
+        CpiContext::new(cpi_program, cpi_accounts)
+    }
+}
+</code></pre>
+<p><code>authority</code> account现在是一个<code>UncheckedAccount</code>而非<code>Signer</code>. 当puppet-master被调用的时候, <code>authority</code> pda还不是一个signer, 所以我们肯定不能用Signer检查. 我们只在乎puppet-master可以签名, 所以我们不需要加任何seeds. 只有一个在链下计算的bump来传入function 就可以了.</p>
+<p>最后, 这是更新后的<code>puppet.ts</code>:</p>
+<pre><code class="language-ts">import * as anchor from '@project-serum/anchor';
+import { Program } from '@project-serum/anchor';
+import { Keypair, PublicKey, SystemProgram } from '@solana/web3.js';
+import { Puppet } from '../target/types/puppet';
+import { PuppetMaster } from '../target/types/puppet_master';
+import { expect } from 'chai';
+
+describe('puppet', () =&gt; {
+  anchor.setProvider(anchor.Provider.env());
+
+  const puppetProgram = anchor.workspace.Puppet as Program&lt;Puppet&gt;;
+  const puppetMasterProgram = anchor.workspace.PuppetMaster as Program&lt;PuppetMaster&gt;;
+
+  const puppetKeypair = Keypair.generate();
+
+  it('Does CPI!', async () =&gt; {
+    const [puppetMasterPDA, puppetMasterBump] = await PublicKey
+      .findProgramAddress([], puppetMasterProgram.programId);
+
+    await puppetProgram.rpc.initialize(puppetMasterPDA, {
+      accounts: {
+        puppet: puppetKeypair.publicKey,
+        user: anchor.getProvider().wallet.publicKey,
+        systemProgram: SystemProgram.programId,
+      },
+      signers: [puppetKeypair]
+    });
+
+    await puppetMasterProgram.rpc.pullStrings(puppetMasterBump, new anchor.BN(42),{
+      accounts: {
+        puppetProgram: puppetProgram.programId,
+        puppet: puppetKeypair.publicKey,
+        authority: puppetMasterPDA
+      ,
+    }});
+
+    expect((await puppetProgram.account.data
+      .fetch(puppetKeypair.publicKey)).data.toNumber()).to.equal(42);
+  });
+});
+</code></pre>
+<p><code>authority</code>已经不在是一个随机生成的公私钥对了, 而是一个由puppet-master program导出的PDA. 这意味着puppet-master可以用它来签名, 正如在<code>pullStrings</code>中所看到的. 值得注意我们的实现也允许使用非标准bump, 但这里我们只想验证我们可以签名, 所以我们并不在乎用的是否是标准bump.</p>
+<blockquote>
+<p>在很多情况下, 我们可以通过让一个存数据的PDA, 也用来签名, 而不是额外定义一个PDA, 并以此来减少所需要accounts的数量.</p>
+</blockquote>
+<h2 id="pdas-总结"><a class="header" href="#pdas-总结">PDAs: 总结</a></h2>
+<p>这小节我们简单回顾一下PDA能实现的不同功能.</p>
+<p>首先, 你可以用PDA来创建hashmaps. 我们创建了一个由用户地址导出的PDA来储存user stats. 这个导出方法把用户的地址和用户的stats account联系到了一起, 这样只要有用户地址, 就很容易导出stats account.</p>
+<p>Hashmaps还保证了唯一性, 这点可以在很多场景中运用, 比如, 在一个区中心化交易所应用中, 每两种资产只允许一个市场存在.</p>
+<p>第二, PDAs可以用来让程序能够为CPI签名. 这意味着程序可以代码的逻辑和规则控制和管理资产和数据.</p>
+<p>你甚至可以结合这两个功能, 让一个instruction中的PDA即作为一个表示状态的account, 也为CPI签名.</p>
+<p>坦白说, 对PDAs的使用是使用Solana进行合约开发中最有挑战的技能.
+因此我们准备了一些额外的资料来对我们的内容进行补充.</p>
+<ul>
+<li><a href="https://twitter.com/pencilflip/status/1455948263853600768?s=20&amp;t=J2JXCwv395D7MNkX7a9LGw">Pencilflips's twitter thread on PDAs</a></li>
+<li><a href="https://www.youtube.com/watch?v=iMWaQRyjpl4">jarry xiao's talk on PDAs and CPIs</a></li>
+<li><a href="https://paulx.dev/blog/2021/01/14/programming-on-solana-an-introduction/">paulx's guide on everything Solana (covers much more than PDAs)</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="anchor-tooling"><a class="header" href="#anchor-tooling">Anchor Tooling</a></h1>
+<p>This chapter explores Anchor's tooling.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="占用空间参考"><a class="header" href="#占用空间参考">占用空间参考</a></h1>
+<p>这里介绍你需要为每个account分配多少空间(通过<code>space=xxx</code>)。
+这里的文档只适用于不用<code>zero-copy</code>的account。<code>zero-copy</code> 会用 <code>repr(C)</code> 作为一个指针的类型转换,
+所以会用<code>C</code>的空间分配结构。</p>
+<p>除了为account的data分配空间，你还要加<code>8</code>字节给<code>space</code>，作为Anchor的内部账号类型标记discriminatior (参考例子里用到额外<code>8</code>的地方)。</p>
+<table><thead><tr><th>Types</th><th>Space in bytes</th><th>Details/Example</th></tr></thead><tbody>
+<tr><td>bool</td><td>1</td><td>只需要一个bit但仍然需要占用1 byte</td></tr>
+<tr><td>u8/i8</td><td>1</td><td></td></tr>
+<tr><td>u16/i16</td><td>2</td><td></td></tr>
+<tr><td>u32/i32</td><td>4</td><td></td></tr>
+<tr><td>u64/i64</td><td>8</td><td></td></tr>
+<tr><td>u128/i128</td><td>16</td><td></td></tr>
+<tr><td>[T;amount]</td><td>space(T) * amount</td><td>e.g. space([u16;32]) = 2 * 32 = 64</td></tr>
+<tr><td>Pubkey</td><td>32</td><td></td></tr>
+<tr><td>Vec&lt;T&gt;</td><td>4 + (space(T) * amount)</td><td>账号的大小是固定的，所以对于大小是变量的数据类型，一开始就要初始化足够大的空间</td></tr>
+<tr><td>String</td><td>4 + length of string in bytes</td><td>账号的大小是固定的，所以对于大小是变量的数据类型，一开始就要初始化足够大的空间</td></tr>
+<tr><td>Option<T></td><td>1 + (space(T))</td><td></td></tr>
+<tr><td>Enum</td><td>1 + Largest Variant Size</td><td>e.g. Enum { A, B { val: u8 }, C { val: u16 } } -&gt; 1 + space(u16) = 3</td></tr>
+<tr><td>f32</td><td>4</td><td>对于NaN序列化会失败</td></tr>
+<tr><td>f64</td><td>8</td><td>对于NaN序列化会失败</td></tr>
+</tbody></table>
+<h1 id="example"><a class="header" href="#example">Example</a></h1>
+<pre><code class="language-rust ignore">#[account]
+pub struct MyData {
+    pub val: u16,
+    pub state: GameState,
+    pub players: Vec&lt;Pubkey&gt; // we want to support up to 10 players
+}
+
+impl MyData {
+    pub const MAX_SIZE: usize = 2 + (1 + 32) + (4 + 10 * 32);
+}
+
+#[derive(AnchorSerialize, AnchorDeserialize, Clone, PartialEq, Eq)]
+pub enum GameState {
+    Active,
+    Tie,
+    Won { winner: Pubkey },
+}
+
+#[derive(Accounts)]
+pub struct InitializeMyData&lt;'info&gt; {
+    // Note that we have to add 8 to the space for the internal anchor
+    #[account(init, payer = signer, space = 8 + MyData::MAX_SIZE)]
+    pub acc: Account&lt;'info, MyData&gt;,
+    pub signer: Signer&lt;'info&gt;,
+    pub system_program: Program&lt;'info, System&gt;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="命令行cli"><a class="header" href="#命令行cli">命令行CLI</a></h1>
+<p>我们可以通过命令行CLI来构建和管理Anchor的工作环境.
+查看详细的命令和对应的选项列表, 我们可以通过<code>anchor -h</code>来查看子命令.</p>
+<pre><code>anchor-cli
+
+USAGE:
+    anchor &lt;SUBCOMMAND&gt;
+
+FLAGS:
+    -h, --help       打印帮助信息
+    -V, --version    打印版本信息
+
+SUBCOMMANDS:
+    build      构建工作环境
+    cluster    Cluster集群命令
+    deploy     部署工作环境中的每个程序
+    expand     扩展工作环境中一个程序的宏（macro）
+    help       打印现在这个消息或者对应子命令的帮助信息
+    idl        与接口定义交互的命令
+    init       初始化一个工作环境
+    migrate    运行部署迁移脚本
+    new        创建一个新的程序
+    test       在localnetwork中运行集成测试
+    upgrade    更新单个程序.配置的钱包必须由升级权限（upgrade authority）
+    verify     验证链上的字节码和本地的编译结果一致. 需要在一个程序的子文件夹中运行这个命令, 例如, 在包含程序的
+               Cargo.toml的文件夹中。
+</code></pre>
+<h2 id="build构建"><a class="header" href="#build构建">Build构建</a></h2>
+<pre><code>anchor build
+</code></pre>
+<p>在工作环境中构建目标为Solana的BPF运行环境的程序，并且输出IDLs到<code>target/idl</code>文件夹.</p>
+<pre><code>anchor build --verifiable
+</code></pre>
+<p>在docker镜像中构建来保证输出的二进制的确定性（假定使用了一个Cargo.lock文件）.这个命令必须在工作环境中一个单独的crate子文件夹中运行. 例如, <code>programs/&lt;my-program&gt;/</code>.</p>
+<h2 id="clust集群"><a class="header" href="#clust集群">Clust集群</a></h2>
+<h3 id="clust-list集群列表"><a class="header" href="#clust-list集群列表">Clust list集群列表</a></h3>
+<pre><code>anchor cluster list
+</code></pre>
+<p>列出集群端口:</p>
+<pre><code>集群端口:
+
+* Mainnet - https://solana-api.projectserum.com
+* Mainnet - https://api.mainnet-beta.solana.com
+* Devnet  - https://api.devnet.solana.com
+* Testnet - https://api.testnet.solana.com
+</code></pre>
+<h2 id="部署deploy"><a class="header" href="#部署deploy">部署Deploy</a></h2>
+<pre><code>anchor deploy
+</code></pre>
+<p>把工作环境中的所有程序部署到配置的网络。</p>
+<p>::: 小贴士
+这与<code>solana program deploy</code>命令不同, 因为每次运行都会生成 <em>新的</em> program address.
+:::</p>
+<h2 id="扩展expand"><a class="header" href="#扩展expand">扩展Expand</a></h2>
+<pre><code>anchor expand
+</code></pre>
+<p>如果在一个程序（program）的文件夹中运行, 那么扩展该程序的宏.</p>
+<p>如过在工作环境workspace中，但是在程序文件夹外, 那么扩展整个工作环境的宏.</p>
+<p>如果带着<code>--program-name</code>选项运行, 那么只扩展所选定的程序.</p>
+<h2 id="接口定义命令idl"><a class="header" href="#接口定义命令idl">接口定义命令Idl</a></h2>
+<p><code>idl</code> 子命令用来和接口定义文件interface definition files交互.
+推荐的范式是把IDL存在链上, 一个固定的地址, as a function of nothing but the the program's ID. This
+allows us to generate clients for a program using nothing but the program ID.</p>
+<h3 id="idl初始化"><a class="header" href="#idl初始化">Idl初始化</a></h3>
+<pre><code>anchor idl init -f &lt;target/idl/program.json&gt; &lt;program-id&gt;
+</code></pre>
+<p>创建一个idl账号, 把给出的 <code>&lt;target/idl/program.json&gt;</code>文件写入一个program owned account. 常规情况下, account 的大小是IDL account的两倍, 这个是给未来IDL升级流出空间.</p>
+<h3 id="idl获取"><a class="header" href="#idl获取">Idl获取</a></h3>
+<pre><code>anchor idl fetch -o &lt;out-file.json&gt; &lt;program-id&gt;
+</code></pre>
+<p>从当前配置的网络读取一个IDL。 比如, 确保你的
+<code>Anchor.toml</code>指向<code>mainnet</code>集群后运行</p>
+<pre><code>anchor idl fetch GrAkKfEpTKQuVHG2Y97Y2FF4i7y7Q5AHLK94JBy7Y5yv
+</code></pre>
+<h3 id="idl权限"><a class="header" href="#idl权限">Idl权限</a></h3>
+<pre><code>anchor idl authority &lt;program-id&gt;
+</code></pre>
+<p>输出IDL账号的当前authority.也就是当前有权限更新IDL的钱包。</p>
+<h3 id="删除idl的authority权限"><a class="header" href="#删除idl的authority权限">删除Idl的authority权限</a></h3>
+<pre><code>anchor idl erase-authority -p &lt;program-id&gt;
+</code></pre>
+<p>删掉IDL 账号的authority权限来禁止更新. 配置的钱包wallet必须是当前的authority.</p>
+<h3 id="合约接口idl升级"><a class="header" href="#合约接口idl升级">合约接口Idl升级</a></h3>
+<pre><code>anchor idl upgrade &lt;program-id&gt; -f &lt;target/idl/program.json&gt;
+</code></pre>
+<p>升级IDL链上文件到新版的<code>target/idl/program.json</code>idl.
+配置的钱包wallet必须现在的authority权限所有者.</p>
+<pre><code>anchor idl set-authority -n &lt;new-authority&gt; -p &lt;program-id&gt;
+</code></pre>
+<p>在IDL的账号设置一个新的authority权限. <code>new-authority</code>和<code>program-id</code>
+都必须是base 58编码.</p>
+<h2 id="项目初始化init"><a class="header" href="#项目初始化init">项目初始化Init</a></h2>
+<pre><code>anchor init
+</code></pre>
+<p>初始化一个有下面文件结构的项目工作环境。</p>
+<ul>
+<li><code>Anchor.toml</code>: Anchor配置文件.</li>
+<li><code>Cargo.toml</code>: Rust工作环境配置文件.</li>
+<li><code>package.json</code>: JavaScript依赖文件.</li>
+<li><code>programs/</code>: Solana程序crates的文件夹.</li>
+<li><code>app/</code>: 前端代码的文件夹.</li>
+<li><code>tests/</code>: JavaScript集成测试的文件夹.</li>
+<li><code>migrations/deploy.js</code>: 部署脚本.</li>
+</ul>
+<h2 id="迁移migrate"><a class="header" href="#迁移migrate">迁移Migrate</a></h2>
+<pre><code>anchor migrate
+</code></pre>
+<p>运行 <code>migrations/deploy.js</code>中的部署脚本, 注入由<code>Anchor.toml</code>中配置好的provider. 例如,</p>
+<pre><code class="language-javascript">// File: migrations/deploys.js
+
+const anchor = require(&quot;@project-serum/anchor&quot;);
+
+module.exports = async function (provider) {
+  anchor.setProvider(provider);
+
+  // Add your deploy script here.
+}
+</code></pre>
+<p>迁移是新功能，目前只支持这个简单的部署脚本。</p>
+<h2 id="新建程序new"><a class="header" href="#新建程序new">新建程序New</a></h2>
+<pre><code>anchor new &lt;program-name&gt;
+</code></pre>
+<p>在工作环境的 <code>programs/</code> 文件夹中创建新程序并用模板代码来初始化。</p>
+<h2 id="测试test"><a class="header" href="#测试test">测试Test</a></h2>
+<pre><code>anchor test
+</code></pre>
+<p>在配置好的集群运行集成测试，运行前会部署共环境中的所有程序。</p>
+<p>如果配置的网络的是本地网络(localnetwork),测试前会自动启动本地网络，然后再运行测试。</p>
+<p>::: 小贴士
+要确保关掉其他的local validators, 否则<code>anchor test</code>会运行失败.</p>
+<p>如果你想用本地validator来测试，可以运行 <code>anchor test --skip-local-validator</code>.
+:::</p>
+<p>当运行测试时，日志会被发送到 <code>.anchor/program-logs/&lt;address&gt;.&lt;program-name&gt;.log</code></p>
+<p>::: 小贴士
+Anchor工作流<a href="https://www.parity.io/paritys-checklist-for-secure-smart-contract-development/">推荐</a>
+用非Rust语言来编写集成测试，来保证由对Rust语法误解造成的bug可以被测试覆盖到，而不被在测试中重复。
+:::</p>
+<h2 id="升级upgrade"><a class="header" href="#升级upgrade">升级Upgrade</a></h2>
+<pre><code>anchor upgrade &lt;target/deploy/program.so&gt; --program-id &lt;program-id&gt;
+</code></pre>
+<p>用Solana的可升级BPF loader来升级链上程序代码.</p>
+<h2 id="验证verify"><a class="header" href="#验证verify">验证Verify</a></h2>
+<pre><code>anchor verify &lt;program-id&gt;
+</code></pre>
+<p>验证链上的字节码和本地的编译结果一致。</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="anchor-version-manager"><a class="header" href="#anchor-version-manager">Anchor Version Manager</a></h1>
+<p>Anchor Version Manager (avm) is provided to manage multiple installations of the anchor-cli binary. This may be required to produce verifiable builds, or if you'd prefer to work with an alternate version.</p>
+<pre><code>Anchor version manager
+
+USAGE:
+    avm &lt;SUBCOMMAND&gt;
+
+OPTIONS:
+    -h, --help       Print help information
+    -V, --version    Print version information
+
+SUBCOMMANDS:
+    help         Print this message or the help of the given subcommand(s)
+    install      Install a version of Anchor
+    list         List available versions of Anchor
+    uninstall    Uninstall a version of Anchor
+    use          Use a specific version of Anchor
+</code></pre>
+<h2 id="install"><a class="header" href="#install">Install</a></h2>
+<pre><code>avm install &lt;version&gt;
+</code></pre>
+<p>Install the specified version of anchor-cli. The version argument should follow semver versioning. It is also possible to use <code>latest</code> as the version argument to install the latest version.</p>
+<h2 id="list"><a class="header" href="#list">List</a></h2>
+<pre><code>avm list
+</code></pre>
+<p>Lists available versions of anchor-cli.</p>
+<pre><code>0.3.0
+0.4.0
+0.4.1
+0.4.2
+0.4.3
+0.4.4
+0.4.5
+0.5.0
+0.6.0
+0.7.0
+0.8.0
+0.9.0
+0.10.0
+0.11.0
+0.11.1
+0.12.0
+0.13.0
+0.13.1
+0.13.2
+0.14.0
+0.15.0
+0.16.0
+0.16.1
+0.16.2
+0.17.0
+0.18.0
+0.18.2
+0.19.0
+0.20.0  (installed)
+0.20.1  (latest, installed, current)
+</code></pre>
+<h2 id="uninstall"><a class="header" href="#uninstall">Uninstall</a></h2>
+<pre><code>avm uninstall &lt;version&gt;
+</code></pre>
+<h2 id="use"><a class="header" href="#use">Use</a></h2>
+<pre><code>avm use &lt;version&gt;
+</code></pre>
+<p>Use a specific version. This version will remain in use until you change it by calling the same command again. Similarly to <code>avm install</code>, you can also use <code>latest</code> for the version.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="anchortoml-reference"><a class="header" href="#anchortoml-reference">Anchor.toml Reference</a></h1>
+<h2 id="provider-required"><a class="header" href="#provider-required">provider (required)</a></h2>
+<p>A wallet and cluster that are used for all commands.</p>
+<p>Example:</p>
+<pre><code class="language-toml">[provider]
+cluster = &quot;localnet&quot;                    # The cluster used for all commands.
+wallet = &quot;~/.config/solana/id.json&quot;     # The keypair used for all commands.
+</code></pre>
+<h2 id="scripts-required-for-testing"><a class="header" href="#scripts-required-for-testing">scripts (required for testing)</a></h2>
+<p>Scripts that can be run with <code>anchor run &lt;script&gt;</code>. The <code>test</code> script is executed by <code>anchor test</code>.</p>
+<p>Example:</p>
+<pre><code class="language-toml">[scripts]
+test = &quot;yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts&quot;
+</code></pre>
+<h2 id="registry"><a class="header" href="#registry">registry</a></h2>
+<p>The registry that is used in commands related to verifiable builds (e.g. when pushing a verifiable build with <code>anchor publish</code>).</p>
+<p>Example:</p>
+<pre><code>[registry]
+url = &quot;https://anchor.projectserum.com&quot;
+</code></pre>
+<h2 id="programs"><a class="header" href="#programs">programs</a></h2>
+<p>Example:</p>
+<pre><code class="language-toml">[programs.localnet]
+my_program = &quot;Fg6PaFpoGXkYsidMpWTK6W2BeZ7FEfcYkg476zPFsLnS&quot;
+</code></pre>
+<p>The addresses of the programs in the workspace. </p>
+<p><code>programs.localnet</code> is used during testing on localnet where it's possible to load a program at genesis with the <code>--bpf-program</code> option on <code>solana-test-validator</code>.</p>
+<h2 id="test"><a class="header" href="#test">test</a></h2>
+<h4 id="startup_wait"><a class="header" href="#startup_wait">startup_wait</a></h4>
+<p>Increases the time anchor waits for the <code>solana-test-validator</code> to start up. This is, for example, useful if you're cloning (see <code>test.validator.clone</code>) many accounts which increases the validator's startup time.</p>
+<p>Example:</p>
+<pre><code class="language-toml">[test]
+startup_wait = 10000
+</code></pre>
+<h4 id="genesis"><a class="header" href="#genesis">genesis</a></h4>
+<p>Makes commands like <code>anchor test</code> start <code>solana-test-validator</code> with a given program already loaded.</p>
+<p>Example</p>
+<pre><code class="language-toml">[[test.genesis]]
+address = &quot;9xQeWvG816bUx9EPjHmaT23yvVM2ZWbrrpZb9PusVFin&quot;
+program = &quot;dex.so&quot;
+
+[[test.genesis]]
+address = &quot;22Y43yTVxuUkoRKdm9thyRhQ3SdgQS7c7kB6UNCiaczD&quot;
+program = &quot;swap.so&quot;
+</code></pre>
+<h2 id="testvalidator"><a class="header" href="#testvalidator">test.validator</a></h2>
+<p>These options are passed into the options with the same name in the <code>solana-test-validator</code> cli (see <code>solana-test-validator --help</code>) in commands like <code>anchor test</code>.</p>
+<pre><code class="language-toml">[test.validator]
+url = &quot;https://api.mainnet-beta.solana.com&quot;     # This is the url of the cluster that accounts are cloned from (See `test.validator.clone`).
+warp_slot = 1337                                # Warp the ledger to `warp_slot` after starting the validator. 
+slots_per_epoch = 5                             # Override the number of slots in an epoch.
+rpc_port = 1337                                 # Set JSON RPC on this port, and the next port for the RPC websocket.
+limit_ledger_size = 1337                        # Keep this amount of shreds in root slots.
+ledger = &quot;test-ledger&quot;                          # Set ledger location.
+gossip_port = 1337                              # Gossip port number for the validator.
+gossip_host = &quot;127.0.0.1&quot;                       # Gossip DNS name or IP address for the validator to advertise in gossip.
+faucet_sol = 1337                               # Give the faucet address this much SOL in genesis.
+faucet_port = 1337                              # Enable the faucet on this port.
+dynamic_port_range = &quot;1337 - 13337&quot;             # Range to use for dynamically assigned ports.
+bind_address = &quot;0.0.0.0&quot;                        # IP address to bind the validator ports.
+</code></pre>
+<h4 id="testvalidatorclone"><a class="header" href="#testvalidatorclone">test.validator.clone</a></h4>
+<p>Use this to clone an account from the <code>test.validator.clone.url</code> cluster to the cluster of your test.
+If <code>address</code> points to a program owned by the &quot;BPF upgradeable loader&quot;, anchor (<code>&gt;= 0.23.0</code>) will clone the
+program data account of the program for you automatically.</p>
+<p>Example:</p>
+<pre><code class="language-toml">[test.validator]
+url = &quot;https://api.mainnet-beta.solana.com&quot;
+
+[[test.validator.clone]]
+address = &quot;7NL2qWArf2BbEBBH1vTRZCsoNqFATTddH6h8GkVvrLpG&quot;
+[[test.validator.clone]]
+address = &quot;2RaN5auQwMdg5efgCaVqpETBV8sacWGR8tkK4m9kjo5r&quot;
+[[test.validator.clone]]
+address = &quot;metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s&quot; # implicitly also clones PwDiXFxQsGra4sFFTT8r1QWRMd4vfumiWC1jfWNfdYT
+</code></pre>
+<h4 id="testvalidatoraccount"><a class="header" href="#testvalidatoraccount">test.validator.account</a></h4>
+<p>Use this to upload an account from a <code>.json</code> file.</p>
+<p>Example:</p>
+<pre><code class="language-toml">[[test.validator.account]]
+address = &quot;Ev8WSPQsGb4wfjybqff5eZNcS3n6HaMsBkMk9suAiuM&quot;
+filename = &quot;some_account.json&quot;
+
+[[test.validator.account]]
+address = &quot;Ev8WSPQsGb4wfjybqff5eZNcS3n6HaMsBkMk9suAiuM&quot;
+filename = &quot;some_other_account.json&quot;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="reference-links"><a class="header" href="#reference-links">Reference Links</a></h1>
+<ul>
+<li><a href="https://docs.rs/anchor-lang/latest/anchor_lang/accounts/index.html">Accounts Reference</a></li>
+<li><a href="https://docs.rs/anchor-lang/latest/anchor_lang/derive.Accounts.html">Constraints Reference</a></li>
+<li><a href="https://docs.rs/anchor-lang/latest/anchor_lang/__private/enum.ErrorCode.html">Error Codes</a></li>
+</ul>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+            </nav>
+
+        </div>
+
+        <script type="text/javascript">
+            window.playground_copyable = true;
+        </script>
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+    </body>
+</html>
